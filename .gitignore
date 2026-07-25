@@ -1,0 +1,9 @@
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.pdf
+*.env
+*.key
+*.pem
+.DS_Store
