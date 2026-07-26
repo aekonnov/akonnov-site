@@ -3,6 +3,7 @@
 *.jpeg
 *.webp
 !assets/games/*.webp
+!assets/about/*.webp
 *.pdf
 *.env
 *.key
