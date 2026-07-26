@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Digi Anton: архитектура и практика автономной многоагентной AI-системы с локальными моделями, QMD/RAG-памятью, контролем и резервированием.">
+  <title>Digi Anton — практический кейс многоагентной AI-системы</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="preview-bar"><span>STAGING · НЕ PRODUCTION</span><a href="/ai/">Вернуться в раздел ИИ</a></div>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Коннов Консалтинг"><span class="brand-mark">К</span><span>КОННОВ<br>КОНСАЛТИНГ</span></a>
+    <button class="menu-button" aria-label="Открыть меню" aria-expanded="false">Меню</button>
+    <nav><a href="/consulting/">Консалтинг</a><a href="/books-games/">Книги и игры</a><a class="active" href="/ai/">ИИ</a><a href="/portfolio/">Опыт</a><a href="/about/">Об Антоне</a><a href="#contact">Контакты</a></nav>
+  </header>
+
+  <main>
+    <section class="page-hero digi-hero">
+      <p class="eyebrow">Реальный проект · архитектура · эксплуатация</p>
+      <h1>Цифровой двойник,<br><em>который учится работать</em></h1>
+      <p class="lead">Digi Anton — развиваемая многоагентная система для исследований, знаний, контента, инженерных и операционных задач. Она объединяет локальные вычисления, долговременную память, профильные роли, регулярные циклы и человеческий контроль.</p>
+      <div class="actions"><a class="button primary" href="#architecture">Разобрать архитектуру</a><a class="button secondary" href="#contact">Обсудить применение</a></div>
+    </section>
+
+    <section class="stat-strip">
+      <div><strong>2</strong><span>вычислительных узла с разными ролями</span></div>
+      <div><strong>8</strong><span>профильных ролей в общем контуре</span></div>
+      <div><strong>Daily</strong><span>операционные отчёты и проверки</span></div>
+    </section>
+
+    <section class="case-origin">
+      <div><p class="eyebrow">Исходная задача</p><h2>Не ещё один чат.<br>Рабочая цифровая система.</h2></div>
+      <div class="case-origin-copy">
+        <p class="case-lead">Личная и проектная работа распределена между документами, задачами, исследованиями, кодом, визуальными материалами и инфраструктурой. Один универсальный помощник быстро теряет контекст и не показывает, что действительно сделано.</p>
+        <p>Задача Digi Anton — разделять ответственность между ролями, сохранять решения в долговременной памяти, выполнять повторяемую работу и давать наблюдаемое состояние системы. Автономность повышается постепенно, только после проверки конкретного контура.</p>
+      </div>
+    </section>
+
+    <section id="architecture" class="digi-architecture">
+      <div><p class="eyebrow">Архитектура</p><h2>Оркестрация отдельно.<br>Тяжёлые вычисления отдельно.</h2></div>
+      <div class="digi-flow">
+        <article class="flow-human"><span>01 · HUMAN</span><h3>Антон и рабочие каналы</h3><p>Цели, исходный контекст, важные решения и подтверждение действий с внешними последствиями.</p></article>
+        <b>↓</b>
+        <article class="flow-control"><span>02 · ORCHESTRATION</span><h3>OpenClaw и control plane</h3><p>Маршрутизация задач, очереди, роли, статусы, отчёты и ограничения действий.</p></article>
+        <div class="flow-pair">
+          <article><span>03 · AGENTS</span><h3>Профильные роли</h3><p>Контент, знания, бизнес-анализ, визуал, вычисления, программирование и персональная поддержка.</p></article>
+          <article><span>04 · MEMORY</span><h3>QMD и локальный RAG</h3><p>Документы, принятые решения и поиск с указанием источников.</p></article>
+        </div>
+        <b>↓</b>
+        <article class="flow-compute"><span>05 · COMPUTE</span><h3>AIserver</h3><p>Локальные модели и ресурсоёмкие вычислительные, инженерные и визуальные задачи.</p></article>
+      </div>
+    </section>
+
+    <section class="agent-roles">
+      <div><p class="eyebrow">Разделение ответственности</p><h2>Восемь ролей.<br>Не восемь одинаковых чатов.</h2></div>
+      <div class="role-grid">
+        <article><span>01</span><h3>Оркестратор</h3><p>Разбирает цель, выбирает маршрут и собирает результат.</p></article>
+        <article><span>02</span><h3>Менеджер знаний</h3><p>Поддерживает память, источники и принятые решения.</p></article>
+        <article><span>03</span><h3>Контент-планировщик</h3><p>Исследования, планы, статьи и публикационные пакеты.</p></article>
+        <article><span>04</span><h3>Бизнес-аналитик</h3><p>Структурирует задачи, данные, варианты и выводы.</p></article>
+        <article><span>05</span><h3>Визуальный агент</h3><p>Изображения, визуальные брифы и контроль исходников.</p></article>
+        <article><span>06</span><h3>Compute operator</h3><p>Направляет ресурсоёмкую работу на вычислительный узел.</p></article>
+        <article><span>07</span><h3>Команда разработки</h3><p>Код, тесты и изменения с инженерными safety gates.</p></article>
+        <article><span>08</span><h3>Персональный секретарь</h3><p>Обзоры задач и подготовка действий, требующих проверки.</p></article>
+      </div>
+    </section>
+
+    <section class="memory-section">
+      <div><p class="eyebrow">Память</p><h2>Решение не должно исчезать вместе с чатом</h2></div>
+      <div class="memory-stack">
+        <article><b>Источники</b><p>Документы, проектные файлы, отчёты и канонические правила.</p></article>
+        <article><b>QMD-слой</b><p>Долговременная база знаний, пригодная для человека и агентов.</p></article>
+        <article><b>RAG-поиск</b><p>Read-only извлечение релевантного контекста с трассировкой источников.</p></article>
+        <article><b>Decision memory</b><p>Утверждённые решения записываются до продолжения работы и считаются каноническими.</p></article>
+      </div>
+    </section>
+
+    <section class="operations-section">
+      <div><p class="eyebrow">Эксплуатация</p><h2>Автономность должна быть наблюдаемой</h2></div>
+      <div class="operations-grid">
+        <article><span>ACTIVE</span><h3>Ежедневный отчёт</h3><p>Состояние ролей, очередей, ошибок, моделей, памяти и резервных циклов.</p></article>
+        <article><span>ACTIVE</span><h3>Health-checks</h3><p>Проверки доступности ключевых сервисов и воспроизводимых рабочих маршрутов.</p></article>
+        <article><span>ACTIVE</span><h3>Резервирование</h3><p>Локальные копии и взаимная репликация основных контуров между узлами.</p></article>
+        <article><span>GATED</span><h3>Рискованные действия</h3><p>Публикация, внешние изменения и чувствительные операции требуют допуска.</p></article>
+      </div>
+    </section>
+
+    <section class="case-lessons">
+      <div><p class="eyebrow">Практические выводы</p><h2>Что уже стало понятно</h2></div>
+      <div class="lesson-list">
+        <p><b>Полезный процесс важнее новой инфраструктуры.</b><span>Сначала реальная повторяемая задача, затем автоматизация.</span></p>
+        <p><b>Роли требуют разных контекстов и полномочий.</b><span>Название агента само по себе не создаёт специализацию.</span></p>
+        <p><b>Память требует правил.</b><span>Без канонизации решений RAG уверенно возвращает устаревшие варианты.</span></p>
+        <p><b>Автономность без отчёта невидима.</b><span>Наблюдаемость нужна и для доверия, и для исправления ошибок.</span></p>
+        <p><b>Локальные модели не отменяют контроль качества.</b><span>Маршрут выбирается по задаче, риску, стоимости и требуемому уровню результата.</span></p>
+      </div>
+    </section>
+
+    <section class="case-boundaries">
+      <div><p class="eyebrow">Честные границы</p><h2>Что система пока не выдаёт за готовое</h2></div>
+      <p>Самостоятельная внешняя публикация, отправка сообщений, запись в календарь, голосовой контур и финансовые решения без человека не заявляются как полностью автономные возможности. Система развивается итеративно; статус каждого контура важнее эффектной демонстрации.</p>
+    </section>
+
+    <section id="contact" class="contact contact-dark">
+      <div><p class="eyebrow">Применение</p><h2>Начнём с одной повторяемой задачи</h2></div>
+      <div class="contact-card"><p>Опишите процесс, источники, регулярность, цену ошибки и результат, который сейчас приходится собирать вручную.</p><a href="mailto:admin@akonnov.ru">admin@akonnov.ru</a><a href="tel:+79255065805">+7 925 506 58 05</a></div>
+    </section>
+  </main>
+
+  <footer><span>© Коннов Консалтинг</span><span>Изолированный preview · 2026</span></footer>
+  <script src="/script.js"></script>
+</body>
+</html>
