@@ -21,12 +21,23 @@ for (const path of htmlFiles) {
   if ((text.match(/<h1[ >]/g) || []).length !== 1) errors.push(`${name}: expected exactly one h1`);
   if (!text.includes('class="site-footer"')) errors.push(`${name}: missing site footer`);
   if (!text.includes('class="skip-link"')) errors.push(`${name}: missing skip link`);
+  if (name !== '404.html') {
+    if (!text.includes('rel="canonical"')) errors.push(`${name}: missing canonical`);
+    if (!text.includes('property="og:title"') || !text.includes('property="og:image"')) errors.push(`${name}: missing Open Graph`);
+    if (!text.includes('application/ld+json')) errors.push(`${name}: missing JSON-LD`);
+  }
 }
 
 const css = readFileSync(join(root, 'styles.css'), 'utf8');
 if (css.includes('\\n')) errors.push('styles.css: literal \\n sequence');
 if (css.includes('.preview-bar')) errors.push('styles.css: obsolete preview-bar rule');
 if (css.includes('top:108px')) errors.push('styles.css: obsolete mobile menu offset');
+for (const resource of ['icon.svg','apple-touch-icon.png','site.webmanifest','og-default.svg']) {
+  if (!files.some(path => path === join(root,resource))) errors.push(`missing resource: ${resource}`);
+}
+const sitemap = readFileSync(join(root,'sitemap.xml'),'utf8');
+if (!sitemap.includes('<lastmod>')) errors.push('sitemap.xml: missing lastmod');
+if (sitemap.includes('/insights/')) errors.push('sitemap.xml: noindex insights included');
 
 if (errors.length) {
   console.error(errors.join('\n'));
