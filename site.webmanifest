@@ -1,0 +1,9 @@
+{
+  "name": "Антон Коннов",
+  "short_name": "Коннов",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2efe8",
+  "theme_color": "#131516",
+  "icons": [{"src":"/icon.svg","sizes":"any","type":"image/svg+xml"}]
+}
