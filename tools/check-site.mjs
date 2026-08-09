@@ -43,6 +43,8 @@ const sitemap = readFileSync(join(root,'sitemap.xml'),'utf8');
 if (!sitemap.includes('<lastmod>')) errors.push('sitemap.xml: missing lastmod');
 if (!sitemap.includes('https://akonnov.com/insights/</loc>')) errors.push('sitemap.xml: indexable insights missing');
 if (!sitemap.includes('https://akonnov.com/insights/ai-system-not-chatbot/')) errors.push('sitemap.xml: first insight article missing');
+if (!sitemap.includes('https://akonnov.com/insights/process-audit/')) errors.push('sitemap.xml: process audit insight missing');
+if (!sitemap.includes('https://akonnov.com/insights/verifiable-rag/')) errors.push('sitemap.xml: verifiable RAG insight missing');
 
 if (errors.length) {
   console.error(errors.join('\n'));
