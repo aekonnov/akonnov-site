@@ -29,6 +29,7 @@ for (const path of htmlFiles) {
   if (text.includes('class="hero-visual" aria-hidden="true"')) errors.push(`${name}: meaningful hero hidden from accessibility tree`);
   for (const tag of text.matchAll(/<img\b[^>]*>/g)) {
     if (!/\bwidth="\d+"/.test(tag[0]) || !/\bheight="\d+"/.test(tag[0])) errors.push(`${name}: image without dimensions`);
+    if (/\bsrc="[^"]+\.(?:jpe?g|png)"/i.test(tag[0])) errors.push(`${name}: rendered image still uses an unoptimized JPEG/PNG source`);
   }
   if (name !== '404.html') {
     if (!text.includes('rel="canonical"')) errors.push(`${name}: missing canonical`);
@@ -44,6 +45,9 @@ if (css.includes('top:108px')) errors.push('styles.css: obsolete mobile menu off
 if (!css.includes('.process-section') || !css.includes('.process-list')) errors.push('styles.css: missing long-form process component');
 for (const resource of ['icon.svg','apple-touch-icon.png','site.webmanifest','og-default.png']) {
   if (!files.some(path => path === join(root,resource))) errors.push(`missing resource: ${resource}`);
+}
+for (const path of files.filter(path => /\.(?:webp|avif)$/i.test(path) && !path.includes('/source/'))) {
+  if (statSync(path).size > 360 * 1024) errors.push(`${relative(root, path)}: optimized image exceeds 360 KiB`);
 }
 const sitemap = readFileSync(join(root,'sitemap.xml'),'utf8');
 if (!sitemap.includes('<lastmod>')) errors.push('sitemap.xml: missing lastmod');

@@ -4,6 +4,12 @@
 *.webp
 !assets/games/*.webp
 !assets/about/*.webp
+!assets/books/*-480.webp
+!assets/books/*-800.webp
+!assets/books/*-1200.webp
+!assets/games/mamoniya/*-480.webp
+!assets/games/mamoniya/*-960.webp
+!assets/games/mamoniya/*-1440.webp
 *.pdf
 *.env
 *.key
