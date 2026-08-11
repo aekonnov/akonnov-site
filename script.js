@@ -20,7 +20,9 @@ if (button && nav) {
     button.setAttribute('aria-expanded', String(open));
     button.textContent = open ? 'Закрыть' : 'Меню';
   });
-  nav.addEventListener('click', closeMenu);
+  nav.addEventListener('click', event => {
+    if (event.target.closest('a[href]')) closeMenu();
+  });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') closeMenu(true);
     if (event.key === 'Tab' && nav.classList.contains('open')) {
