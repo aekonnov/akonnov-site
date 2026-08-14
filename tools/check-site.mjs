@@ -15,6 +15,7 @@ const htmlFiles = files.filter(path => path.endsWith('.html'));
 for (const path of htmlFiles) {
   const text = readFileSync(path, 'utf8');
   const name = relative(root, path);
+  if (/fonts\.(googleapis|gstatic)\.com/.test(text)) errors.push(`${name}: external Google Fonts reference`);
   const forbidden = text.match(/STAGING|НЕ PRODUCTION|preview главной|Изолированный preview|admin\.ru/i);
   if (forbidden) errors.push(`${name}: forbidden marker ${forbidden[0]}`);
   if (!/<meta name="description" content=".{40,}"/.test(text) && name !== '404.html') errors.push(`${name}: missing/short description`);
@@ -53,6 +54,20 @@ if (css.includes('\\n')) errors.push('styles.css: literal \\n sequence');
 if (css.includes('.preview-bar')) errors.push('styles.css: obsolete preview-bar rule');
 if (css.includes('top:108px')) errors.push('styles.css: obsolete mobile menu offset');
 if (!css.includes('.process-section') || !css.includes('.process-list')) errors.push('styles.css: missing long-form process component');
+const localFonts = [
+  'assets/fonts/manrope-cyrillic.woff2',
+  'assets/fonts/manrope-latin.woff2',
+  'assets/fonts/unbounded-cyrillic.woff2',
+  'assets/fonts/unbounded-latin.woff2',
+  'assets/fonts/OFL-Manrope.txt',
+  'assets/fonts/OFL-Unbounded.txt'
+];
+for (const resource of localFonts) {
+  if (!files.some(path => path === join(root, resource))) errors.push(`missing local font resource: ${resource}`);
+}
+for (const resource of localFonts.filter(path => path.endsWith('.woff2'))) {
+  if (!css.includes(`/${resource}`)) errors.push(`styles.css: missing reference to ${resource}`);
+}
 for (const resource of ['favicon.ico','icon.svg','icon-192.png','icon-512.png','maskable-icon-512.png','apple-touch-icon.png','site.webmanifest','og-default.png']) {
   if (!files.some(path => path === join(root,resource))) errors.push(`missing resource: ${resource}`);
 }
