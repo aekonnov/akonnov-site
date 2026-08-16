@@ -44,3 +44,45 @@ if (button && nav) {
 document.querySelectorAll('[data-current-year]').forEach(node => {
   node.textContent = String(new Date().getFullYear());
 });
+
+const contactForm = document.querySelector('[data-contact-form]');
+if (contactForm) {
+  const status = contactForm.querySelector('[data-contact-form-status]');
+  const submit = contactForm.querySelector('button[type="submit"]');
+  contactForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    const token = contactForm.querySelector('[name="cf-turnstile-response"]')?.value || '';
+    if (!token) {
+      status.textContent = 'Подтвердите антиспам-проверку.';
+      return;
+    }
+    const data = new FormData(contactForm);
+    const payload = {
+      name: data.get('name'),
+      contact: data.get('contact'),
+      message: data.get('message'),
+      website: data.get('website'),
+      consent: data.get('consent') === 'on',
+      turnstileToken: token
+    };
+    submit.disabled = true;
+    status.textContent = 'Отправляем…';
+    try {
+      const response = await fetch(contactForm.dataset.endpoint, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || 'Не удалось отправить заявку.');
+      contactForm.reset();
+      if (window.turnstile) window.turnstile.reset();
+      status.textContent = 'Заявка отправлена. Спасибо!';
+    } catch (error) {
+      status.textContent = error.message || 'Не удалось отправить заявку. Напишите на admin@akonnov.ru.';
+      if (window.turnstile) window.turnstile.reset();
+    } finally {
+      submit.disabled = false;
+    }
+  });
+}
