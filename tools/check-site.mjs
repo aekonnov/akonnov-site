@@ -11,7 +11,7 @@ const walk = dir => readdirSync(dir).forEach(name => {
 walk(root);
 
 const errors = [];
-const htmlFiles = files.filter(path => path.endsWith('.html') && !/\/yandex_[a-f0-9]+\.html$/.test(path));
+const htmlFiles = files.filter(path => path.endsWith('.html') && !/\/(?:yandex_[a-f0-9]+|google[a-f0-9]+)\.html$/.test(path));
 for (const path of htmlFiles) {
   const text = readFileSync(path, 'utf8');
   const name = relative(root, path);
