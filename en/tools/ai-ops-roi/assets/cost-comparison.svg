@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="240" viewBox="0 0 640 240" role="img" aria-label="Local server cost compared with API cost">
+  <rect width="640" height="240" fill="#f6f8fb"/>
+  <rect x="60" y="70" width="210" height="42" rx="6" fill="#1f7a4d"/>
+  <rect x="60" y="130" width="360" height="42" rx="6" fill="#1769aa"/>
+  <rect x="60" y="40" width="520" height="1" fill="#d9e0e7"/>
+  <rect x="60" y="200" width="520" height="1" fill="#d9e0e7"/>
+  <circle cx="520" cy="92" r="22" fill="#ffffff" stroke="#1f7a4d" stroke-width="4"/>
+  <circle cx="520" cy="152" r="22" fill="#ffffff" stroke="#1769aa" stroke-width="4"/>
+</svg>

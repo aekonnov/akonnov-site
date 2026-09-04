@@ -1,5 +1,23 @@
 const button = document.querySelector('.menu-button');
 const nav = document.querySelector('.site-header nav');
+const isEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
+const strings = isEnglish ? {
+  menu: 'Menu', closeMenu: 'Close', analyticsLabel: 'Analytics settings',
+  analyticsText: 'We use Yandex Metrica only with your consent to understand site traffic and improve the website.',
+  learnMore: 'Learn more', acceptAnalytics: 'Allow analytics', necessaryOnly: 'Necessary only',
+  privacyPath: '/en/privacy/', verifyAntispam: 'Please complete the anti-spam check.',
+  sending: 'Sending…', sendFailed: 'Could not send your enquiry.',
+  sent: 'Your enquiry has been sent. Thank you!',
+  sendFailedEmail: 'Could not send your enquiry. Please email admin@akonnov.ru.'
+} : {
+  menu: 'Меню', closeMenu: 'Закрыть', analyticsLabel: 'Настройки аналитики',
+  analyticsText: 'Мы используем Яндекс Метрику только с вашего согласия, чтобы понимать посещаемость и улучшать сайт.',
+  learnMore: 'Подробнее', acceptAnalytics: 'Разрешить аналитику', necessaryOnly: 'Только необходимые',
+  privacyPath: '/privacy/', verifyAntispam: 'Подтвердите антиспам-проверку.',
+  sending: 'Отправляем…', sendFailed: 'Не удалось отправить заявку.',
+  sent: 'Заявка отправлена. Спасибо!',
+  sendFailedEmail: 'Не удалось отправить заявку. Напишите на admin@akonnov.ru.'
+};
 
 const focusableSelector = 'a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])';
 
@@ -8,7 +26,7 @@ const closeMenu = (restoreFocus = false) => {
   const wasOpen = nav.classList.contains('open');
   nav.classList.remove('open');
   button.setAttribute('aria-expanded', 'false');
-  button.textContent = 'Меню';
+  button.textContent = strings.menu;
   if (restoreFocus && wasOpen) button.focus();
 };
 
@@ -18,7 +36,7 @@ if (button && nav) {
   button.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
     button.setAttribute('aria-expanded', String(open));
-    button.textContent = open ? 'Закрыть' : 'Меню';
+    button.textContent = open ? strings.closeMenu : strings.menu;
   });
   nav.addEventListener('click', event => {
     if (event.target.closest('a[href]')) closeMenu();
@@ -82,8 +100,8 @@ const showAnalyticsConsent = () => {
   if (readAnalyticsConsent()) return;
   const banner = document.createElement('section');
   banner.className = 'analytics-consent';
-  banner.setAttribute('aria-label', 'Настройки аналитики');
-  banner.innerHTML = '<p>Мы используем Яндекс Метрику только с вашего согласия, чтобы понимать посещаемость и улучшать сайт. <a href="/privacy/">Подробнее</a></p><div><button type="button" data-analytics-accept>Разрешить аналитику</button><button type="button" data-analytics-reject>Только необходимые</button></div>';
+  banner.setAttribute('aria-label', strings.analyticsLabel);
+  banner.innerHTML = `<p>${strings.analyticsText} <a href="${strings.privacyPath}">${strings.learnMore}</a></p><div><button type="button" data-analytics-accept>${strings.acceptAnalytics}</button><button type="button" data-analytics-reject>${strings.necessaryOnly}</button></div>`;
   banner.querySelector('[data-analytics-accept]').addEventListener('click', () => {
     writeAnalyticsConsent('accepted');
     loadMetrika();
@@ -133,7 +151,7 @@ if (contactForm) {
     event.preventDefault();
     const token = contactForm.querySelector('[name="cf-turnstile-response"]')?.value || '';
     if (!token) {
-      status.textContent = 'Подтвердите антиспам-проверку.';
+      status.textContent = strings.verifyAntispam;
       return;
     }
     const data = new FormData(contactForm);
@@ -146,7 +164,7 @@ if (contactForm) {
       turnstileToken: token
     };
     submit.disabled = true;
-    status.textContent = 'Отправляем…';
+    status.textContent = strings.sending;
     try {
       const response = await fetch(contactForm.dataset.endpoint, {
         method: 'POST',
@@ -154,13 +172,13 @@ if (contactForm) {
         body: JSON.stringify(payload)
       });
       const result = await response.json();
-      if (!response.ok) throw new Error(result.message || 'Не удалось отправить заявку.');
+      if (!response.ok) throw new Error(result.message || strings.sendFailed);
       contactForm.reset();
       if (window.turnstile) window.turnstile.reset();
-      status.textContent = 'Заявка отправлена. Спасибо!';
+      status.textContent = strings.sent;
       sendMetrikaGoal('contact_form_success');
     } catch (error) {
-      status.textContent = error.message || 'Не удалось отправить заявку. Напишите на admin@akonnov.ru.';
+      status.textContent = error.message || strings.sendFailedEmail;
       if (window.turnstile) window.turnstile.reset();
     } finally {
       submit.disabled = false;
