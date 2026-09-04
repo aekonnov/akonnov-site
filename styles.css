@@ -76,6 +76,7 @@
 .case-list article{display:grid;gap:10px}.case-list article>*{min-width:0}.case-list article h3,.case-list article p,.case-list article span,.case-list article a{margin-top:0;margin-bottom:0}.case-list .case-card-action{margin-top:4px}
 :where(h1,h2,h3,b,strong,.button,.case-card-action){word-break:normal;overflow-wrap:normal;hyphens:none}
 @media(max-width:520px){:where(h1,h2,h3,b,strong,.button,.case-card-action){overflow-wrap:break-word}.portfolio-route b{max-width:100%}}
+@media(max-width:800px){.hero-visual{min-height:430px}.hero-visual>p{right:28px}}
 
 /* Verified product photography from Anton's public portfolio, added 2026-09-01. */
 .souvenir-gallery{padding:110px max(28px,calc((100vw - var(--max))/2));background:#f4f1e9}.souvenir-gallery>div:first-child{max-width:900px}.souvenir-gallery h2{margin:0;font-family:var(--font-display);font-size:clamp(34px,4vw,58px);line-height:1.08;letter-spacing:-.04em}.souvenir-gallery>div:first-child>p:last-child{font-size:17px;line-height:1.65}.souvenir-gallery-grid{margin-top:45px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.souvenir-gallery figure{margin:0;background:#fff;border:1px solid var(--line)}.souvenir-gallery img{display:block;width:100%;height:auto}.souvenir-gallery figcaption{padding:14px;font-weight:700}.catalog-grid article img{object-fit:contain;background:#fff}
