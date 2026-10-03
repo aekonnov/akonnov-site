@@ -32,10 +32,13 @@ for (const path of htmlFiles) {
   if ((text.match(/<h1[ >]/g) || []).length !== 1) errors.push(`${name}: expected exactly one h1`);
   if (!text.includes('class="site-footer"')) errors.push(`${name}: missing site footer`);
   if (!text.includes('class="skip-link"')) errors.push(`${name}: missing skip link`);
-  if (!/<header class="site-header">[\s\S]*?<nav[^>]*aria-label="Основная навигация"/.test(text)) errors.push(`${name}: main navigation missing accessible label`);
+  const isEnglish = name.startsWith('en/');
+  const mainNavLabel = isEnglish ? '(?:Main|Primary) navigation' : 'Основная навигация';
+  if (!new RegExp(`<header class="site-header">[\\s\\S]*?<nav[^>]*aria-label="${mainNavLabel}"`).test(text)) errors.push(`${name}: main navigation missing accessible label`);
   const footer = text.match(/<footer class="site-footer">[\s\S]*?<\/footer>/)?.[0] || '';
-  if (!footer.includes('href="/insights/"')) errors.push(`${name}: footer missing insights`);
-  if (!footer.includes('href="/privacy/"')) errors.push(`${name}: footer missing privacy`);
+  const routePrefix = isEnglish ? '/en' : '';
+  if (!footer.includes(`href="${routePrefix}/insights/"`)) errors.push(`${name}: footer missing insights`);
+  if (!footer.includes(`href="${routePrefix}/privacy/"`)) errors.push(`${name}: footer missing privacy`);
   if (text.includes('>Продукты и игры<')) errors.push(`${name}: obsolete books and games label`);
   if (text.includes('class="hero-visual" aria-hidden="true"')) errors.push(`${name}: meaningful hero hidden from accessibility tree`);
   for (const tag of text.matchAll(/<img\b[^>]*>/g)) {
