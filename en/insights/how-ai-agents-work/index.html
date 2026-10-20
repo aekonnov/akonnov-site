@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add("js")</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="How AI agents combine workflows, tools, memory, RAG and human oversight. A practical guide to state, verification and safe actions through one example.">
+  <title>How AI agents work: tools, memory and human oversight</title>
+  <link rel="canonical" href="https://akonnov.com/en/insights/how-ai-agents-work/"><link rel="alternate" hreflang="ru" href="https://akonnov.com/insights/how-ai-agents-work/"><link rel="alternate" hreflang="en" href="https://akonnov.com/en/insights/how-ai-agents-work/"><link rel="alternate" hreflang="x-default" href="https://akonnov.com/insights/how-ai-agents-work/">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="Anton Konnov"><meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://akonnov.com/en/insights/how-ai-agents-work/">
+  <meta property="og:title" content="How AI agents work: tools, memory and human oversight">
+  <meta property="og:description" content="How AI agents combine workflows, tools, memory, RAG and human oversight. A practical guide to state, verification and safe actions through one example.">
+  <meta property="og:image" content="https://akonnov.com/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"How AI agents work: tools, memory and human oversight","description":"What an AI agent is made of: workflows and the agent loop, ReAct, memory and RAG, tools and data validation, state and checkpoints, human oversight, prompts and context — illustrated with one running example.","dateCreated":"2026-10-20","datePublished":"2026-10-20","dateModified":"2026-10-20","inLanguage":"en-US","mainEntityOfPage":"https://akonnov.com/en/insights/how-ai-agents-work/","image":"https://akonnov.com/og-default.png","author":{"@type":"Person","name":"Anton Konnov","url":"https://akonnov.com/en/about/"},"publisher":{"@type":"Person","name":"Anton Konnov","url":"https://akonnov.com/en/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://akonnov.com/en/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://akonnov.com/en/insights/"},{"@type":"ListItem","position":3,"name":"How AI agents work","item":"https://akonnov.com/en/insights/how-ai-agents-work/"}]}]}</script>
+  <link rel="stylesheet" href="/styles.css"><meta name="theme-color" content="#131516"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+  <style>.guide-body{padding:90px max(28px,calc((100vw - var(--max))/2)) 100px;background:var(--paper);overflow-wrap:break-word}.guide-body .guide-text{max-width:820px;min-width:0}.guide-body p,.guide-body li{font-size:18px;line-height:1.7}.guide-body ul,.guide-body ol{padding-left:1.4em}.guide-body li{margin:8px 0}.guide-body h2{margin:76px 0 22px;font-family:var(--font-display);font-size:clamp(26px,3vw,40px);line-height:1.15;letter-spacing:-.03em}.guide-body .guide-text>p:first-child{margin-top:0}.guide-body a{color:inherit;text-decoration:underline;text-underline-offset:3px;font-weight:600}.guide-body a:hover{color:var(--h1-accent)}.guide-body .guide-table{max-width:100%;margin:30px 0;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--ink);background:white}.guide-body table{width:100%;min-width:640px;border-collapse:collapse}.guide-body th,.guide-body td{padding:14px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);text-align:left;vertical-align:top;font-size:15px;line-height:1.5}.guide-body thead th{background:var(--acid);font-weight:700}.guide-body tbody th{font-weight:700;width:22%}.guide-body tr:last-child>*{border-bottom:0}.guide-body tr>*:last-child{border-right:0}.guide-body pre{max-width:100%;margin:28px 0;padding:22px 24px;overflow-x:auto;background:var(--ink);color:var(--paper);font-size:15px;line-height:1.6;white-space:pre}.guide-body pre code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.guide-body :focus-visible{outline:3px solid var(--orange);outline-offset:3px}@media(max-width:800px){.guide-body{padding:60px 20px 70px}.guide-body h2{margin-top:56px}}@media(max-width:520px){.guide-body{padding:48px 18px 60px}.guide-body p,.guide-body li{font-size:17px}.guide-body pre{padding:18px;font-size:14px}}</style>
+</head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="/en/" aria-label="Konnov Consulting"><span class="brand-mark">K</span><span>KONNOV<br>CONSULTING</span></a><button class="menu-button" aria-label="Open menu" aria-expanded="false">Menu</button><nav aria-label="Primary navigation"><a href="/en/consulting/">Consulting</a><a href="/en/books-games/">Books &amp; Games</a><a href="/en/ai/">AI</a><a href="/en/portfolio/">Experience</a><a href="/en/cases/">Case Studies</a><a href="/en/about/">About Anton</a><a class="active" aria-current="page" href="/en/insights/">Insights</a><a href="/en/contact/">Contact</a><a class="language-switcher" href="/insights/how-ai-agents-work/">RU</a></nav></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><span aria-hidden="true">›</span><a href="/en/insights/">Insights</a><span aria-hidden="true">›</span><span aria-current="page">How AI agents work</span></nav><main id="main"><article>
+  <header class="page-hero portfolio"><p class="eyebrow">Applied AI · agent architecture · explainer</p><h1>How AI agents work:<br><em>tools, memory and human oversight</em></h1><p class="lead">A language model on its own takes in text and returns text. It does not browse the internet, open spreadsheets, remember yesterday's conversation or send emails. All of that is done by the application around it: the application gives the model the information it needs, carries out the actions the model requests, stores intermediate results and decides when to stop or call in a person. This whole arrangement is what is usually called an AI agent.</p><p>Anton Konnov · 20 October 2026 · 11 min read</p></header>
+  <section class="guide-body"><div class="guide-text">
+<p>Below are its eight building blocks and the distinctions between them that are worth understanding before you commission or evaluate such a system. Technical statements are accompanied by links to primary sources; recommendations are marked separately.</p>
+<h2>The running example</h2>
+<p>The example is fictional. A small manufacturing company wants to compare several packaging suppliers on price, delivery time, minimum order quantity and payment terms. The desired result is a comparison table in which every figure links to its source, a calculation of the total cost per unit of product, and a draft email asking the suppliers for quotes. The email goes out only after the responsible manager approves it.</p>
+<h2>1. Workflow, agent and graph: who chooses the next step</h2>
+<p>The key distinction is who determines the order of actions. In a <strong>workflow</strong>, the path is fixed in code in advance: get the list of suppliers, collect the price lists, calculate, format the table. In an <strong>agent</strong>, the model itself chooses the next action at each step, taking into account the results it has already obtained (<a href="https://docs.langchain.com/oss/python/langgraph/workflows-agents" rel="noreferrer">LangGraph: workflows and agents</a>).</p>
+<p>A <strong>graph</strong> is not a third competing product but a way of describing a process as a set of steps (nodes) and transitions between them, including conditional ones. A single graph can combine fixed sections with a section where an agent operates. The name LLMChain, found in older tutorials, refers to early LangChain interfaces; it is not a required technology for a modern workflow.</p>
+<div aria-label="Comparison: workflow, agent and graph" class="guide-table" role="region" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">Workflow</th>
+<th scope="col">Agent</th>
+<th scope="col">Graph</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Who chooses the next step</th>
+<td>The developer, in advance</td>
+<td>The model, as the work progresses</td>
+<td>The developer defines the nodes and transition rules; an agent may work inside a node</td>
+</tr>
+<tr>
+<th scope="row">Where it fits</th>
+<td>A stable, repeatable route</td>
+<td>An unknown number of steps</td>
+<td>A process with branches, loops back and pauses</td>
+</tr>
+<tr>
+<th scope="row">Typical risk</th>
+<td>Cannot handle an unanticipated case</td>
+<td>Unnecessary steps, looping, rising cost</td>
+<td>Excessive complexity if there are more branches than needed</td>
+</tr>
+</tbody>
+</table></div>
+<p>In our example, collecting price lists from known, similarly structured websites can be done as an ordinary workflow. An agent is needed where the path is not clear in advance: one supplier's price is in a PDF, another's is available only through an enquiry form, and a third supplier's page is clearly out of date.</p>
+<h2>2. ReAct: action, observation, next step</h2>
+<p>ReAct is a method in which the model alternates between reasoning about the task and taking actions in an external environment, and the result of each action (the observation) is taken into account in the next step (<a href="https://arxiv.org/abs/2210.03629" rel="noreferrer">Yao et al., ReAct</a>). For example: "I need supplier B's price" → search the supplier's website → a page is found where the price is shown excluding VAT → before comparing, it must be brought to a common basis.</p>
+<p>Two caveats. First, ReAct is a way of organising work, not a guarantee of correctness: the agent may misread a page or decide that it already has enough data. Second, oversight does not require seeing the model's hidden internal reasoning. What is visible is enough: the plan, which tools were called, what they returned, which sources the conclusion rests on, and a brief explanation of the decision.</p>
+<p>A modern agent in LangChain is built as a "model — tools" loop with supporting infrastructure: instructions, a set of tools and intermediate handlers (middleware). The model only requests a tool call; the application executes it (<a href="https://docs.langchain.com/oss/python/langchain/agents" rel="noreferrer">LangChain: agents</a>). This means reliability depends not only on the model but also on what the application permits and how it handles errors.</p>
+<h2>3. Memory: the conversation, long-term information and RAG</h2>
+<p>The model does not remember previous requests by itself. If a manager first writes "compare packaging suppliers" and then "add delivery time", the second request makes sense only if the application has passed the model the history or a condensed summary of it. A long history has to be shortened, summarised or filtered: the context window is limited, and extra text makes the request more expensive and can worsen the answer (<a href="https://docs.langchain.com/oss/python/langchain/short-term-memory" rel="noreferrer">LangChain: short-term memory</a>).</p>
+<p>It is useful to distinguish three things:</p>
+<ul>
+<li><strong>Short-term memory</strong> is the state of the current conversation or task: messages, intermediate results, tool calls.</li>
+<li><strong>Long-term memory</strong> is information that the application has decided to keep across different conversations — for example, that the company always compares prices including VAT. In LangGraph, the state of an individual work thread is held by a checkpointer, while information shared across threads is held in a separate store whose contents are defined by the application itself (<a href="https://docs.langchain.com/oss/python/langgraph/persistence" rel="noreferrer">LangGraph: persistence</a>).</li>
+<li><strong>RAG</strong> is searching sources (documents, databases) and passing the retrieved fragments to the model. This is knowledge retrieval, not memory of the dialogue; for more, see the article on <a href="/en/insights/company-knowledge-base-rag/">RAG for a company knowledge base</a>.</li>
+</ul>
+<p>An instruction in the prompt to "remember everything" does not create any storage.</p>
+<h2>4. Tools, APIs and data format validation</h2>
+<p>An API is the way one program accesses another: a search service, a CRM, a price directory. For an agent to use one, it needs credentials, request sending, response parsing and error handling — all of which are done by the application.</p>
+<p>The model generates the call parameters and can make mistakes: omit a required field or pass a value of the wrong type. Describing the data with a schema helps here, for example using the Pydantic library for Python. Roughly (this is pseudocode, not a ready-made integration):</p>
+<pre aria-label="Example data schema" tabindex="0"><code class="language-text">PriceRequest:
+  supplier  — text, required
+  item_code — text, required
+  quantity  — whole number greater than zero
+  currency  — one of: RUB, USD, CNY
+</code></pre>
+<p>If the application validates parameters before contacting the API, a request that fails schema validation is not sent, and the error is returned for correction. There are limitations, however (<a href="https://docs.pydantic.dev/latest/concepts/models/" rel="noreferrer">Pydantic: models</a>). By default, Pydantic may convert compatible values: it will turn the string "500" into the number 500 unless strict mode is selected. Format validation says nothing about truthfulness: a correctly formatted price may be out of date or refer to a different product. Schema validation does not grant permission to act either — permissions are set separately. Finally, the library itself does not call any API.</p>
+<h2>5. Clarification, decomposition and independent verification</h2>
+<p><strong>Clarification.</strong> The request "compare suppliers" is incomplete: is delivery included in the price, what is the order quantity, with or without VAT? A good system asks only about what actually changes the result and works out the obvious on its own.</p>
+<p><strong>Decomposition.</strong> A large task is broken into verifiable steps: list of suppliers → collect terms with links → bring to a common basis (unit, currency, tax) → calculation → table → draft email. Each step can be checked separately, making it possible to see exactly where an error occurred.</p>
+<p><strong>Verification.</strong> The model's self-critique ("check yourself") can be a useful additional pass, but it is not independent proof: the same model often repeats its own mistake. More reliable options are programmatic checks (recalculating the cost in code, reconciling totals), checking each figure against a saved source and, where it matters, verification by another party — a person or a separate system.</p>
+<p><em>Recommendation:</em> limit the number of retries. If, after one or two revisions, there is still no confirmed price for a supplier, it is more honest to put "no data, source not found" in the table than to run an endless improvement loop or let the model fill the cell with a plausible-looking figure.</p>
+<h2>6. State, checkpoints and re-execution</h2>
+<p>State is the shared workspace of the process: which suppliers have already been processed, which prices have been found, which links have been saved. A checkpointer records this state as execution proceeds, tying it to a work-thread identifier. After a failure or a pause, the process can resume from the saved point rather than start over (<a href="https://docs.langchain.com/oss/python/langgraph/persistence" rel="noreferrer">LangGraph: persistence</a>).</p>
+<p>Two details are often overlooked. Saving to working memory (an in-memory saver) is fine for experiments but does not survive the process stopping: real recovery requires durable storage and a stable thread identifier. And a checkpoint by itself does not guarantee that an action is performed exactly once. If a step has already sent an email and the failure happens before the state is saved, the email may go out again on retry.</p>
+<p><em>Recommendation:</em> make external actions idempotent, that is, safe to repeat. If a service supports an idempotency key, use it. For emails, a single "sent" log is not enough: first record the intention to send, then the receipt. If the connection drops and the outcome is unknown, do not blindly resend — recover the send status instead. Otherwise the email may have gone out before the failure even though the success mark was never saved.</p>
+<h2>7. The human in the process: where a pause is needed</h2>
+<p>Human-in-the-loop is the ability to pause a process and ask a person for information or a decision. LangGraph provides interrupts for this: the graph stops and, after the person responds, continues via a resume command using the same thread and the same checkpointer (<a href="https://docs.langchain.com/oss/python/langgraph/interrupts" rel="noreferrer">LangGraph: interrupts</a>). An important technical detail: on resumption, the node where the pause occurred is run from the beginning, so code placed before the pause point may be executed again. Sending an email there without protection against repetition is not acceptable.</p>
+<p>In our example, a person is needed in two places: when there is not enough data for a material decision ("should a supplier without a confirmed delivery time be included?") and before an external action — sending the request to suppliers. There is no need to ask for approval of every search or recalculation: that turns the manager into an operator and undermines the value of automation. Pauses belong where a decision is material or requires authority: sending something outside the company, money, commitments, changing data in other organisations' systems.</p>
+<h2>8. Prompt and context</h2>
+<p>A prompt is the instruction given to the model: the goal, constraints, output format and quality criteria. A weak version: "compare the suppliers and make a good report". A stronger one specifies which suppliers, what unit of comparison, with or without VAT, a link for every figure, missing values to be marked explicitly rather than invented, and the result as a table with specified columns.</p>
+<p>But a prompt does not replace architecture. It will not provide internet access if no search tool is connected, and it will not create memory without storage. Besides the instruction, the result is strongly influenced by the context — exactly which documents, history and tool responses are passed to the model at a given moment. Too little context and the model fills in the gaps; too much and the important parts get lost among the irrelevant.</p>
+<h2>How it all works together</h2>
+<p>An illustrative sequence for our example:</p>
+<ol>
+<li>The manager sets the task; the system clarifies only what matters — order quantity, treatment of VAT and delivery.</li>
+<li>The graph starts collecting terms; where sources are unpredictable, an agent works in an "action — observation" loop.</li>
+<li>The parameters of each call go through format validation, and the figures found are saved in the state together with their links.</li>
+<li>The total cost is calculated by code, not by the model's text response; the results are checked against the sources.</li>
+<li>Gaps are marked as "no data"; the number of revisions is limited.</li>
+<li>The graph pauses: the manager sees the table, the sources and the draft email.</li>
+<li>Only after approval is the email sent — with protection against duplicate sending.</li>
+</ol>
+<p>Having all the building blocks in place does not by itself make a process reliable. The model generates text and proposes actions, the application executes and checks them, and the person makes decisions at agreed control points. The value of the system lies in the work done and the manual routine removed, not in the number of components. How to choose a task for which such a setup is justified at all is covered in the article on <a href="/en/insights/ai-agents-for-business/">AI agents for business</a>.</p>
+</div></section>
+  <section class="related-links" aria-labelledby="related-reading"><h2 id="related-reading">Further reading</h2><div><a href="/en/insights/ai-agents-for-business/">AI agents for business: when and how to implement them<span aria-hidden="true">→</span></a><a href="/en/insights/ai-system-not-chatbot/">An AI system is not a chatbot<span aria-hidden="true">→</span></a><a href="/en/insights/company-knowledge-base-rag/">RAG for a company knowledge base<span aria-hidden="true">→</span></a></div></section><section class="contact contact-dark"><div><p class="eyebrow">Discuss the task</p><h2>Need a working AI loop?</h2><p>We will review the process, autonomy boundaries, data and a safe first launch.</p></div><div class="contact-card"><a href="/en/contact/">Contact me →</a><a href="/en/ai/">Practical AI →</a></div></section>
+</article></main>
+<footer class="site-footer"><nav aria-label="Footer navigation"><a href="/en/consulting/">Consulting</a><a href="/en/books-games/">Books &amp; Games</a><a href="/en/ai/">AI</a><a href="/en/portfolio/">Experience</a><a href="/en/cases/">Case Studies</a><a href="/en/about/">About Anton</a><a href="/en/insights/">Insights</a><a href="/en/contact/">Contact</a><a href="/en/privacy/">Privacy</a></nav><div class="footer-contacts"><a href="mailto:admin@akonnov.ru">admin@akonnov.ru</a><a href="https://t.me/biz_in" target="_blank" rel="noreferrer">Telegram ↗</a><a href="https://vk.com/anton.konnov" target="_blank" rel="noreferrer">VK ↗</a><a href="https://www.linkedin.com/in/antonkonnov/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div><small>© <span data-current-year>2026</span> Anton Konnov · Moscow</small></footer><script src="/script.js"></script>
+</body></html>
