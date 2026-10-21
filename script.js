@@ -125,7 +125,7 @@ document.addEventListener('click', event => {
   else if (link.closest('.contact-paths,.actions,.contact-card')) sendMetrikaGoal('service_interest_click');
 });
 
-if (location.pathname.startsWith('/insights/') && location.pathname !== '/insights/') {
+if (/^\/(?:en\/)?insights\/.+/.test(location.pathname)) {
   let articleReadSent = false;
   addEventListener('scroll', () => {
     const available = document.documentElement.scrollHeight - innerHeight;
