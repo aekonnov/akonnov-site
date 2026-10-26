@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><script>document.documentElement.classList.add("js")</script><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A brewery management game in development: brewing, stock and freshness, sales, growth and a tasting hall. How the core loop works and what already runs.">
+  <title>A brewery management game — prototype — Anton Konnov</title><link rel="canonical" href="https://akonnov.com/en/products/brewery-game/">
+  <link rel="alternate" hreflang="ru" href="https://akonnov.com/products/brewery-game/">
+  <link rel="alternate" hreflang="en" href="https://akonnov.com/en/products/brewery-game/">
+  <link rel="alternate" hreflang="x-default" href="https://akonnov.com/products/brewery-game/">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="Anton Konnov"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://akonnov.com/en/products/brewery-game/"><meta property="og:title" content="A brewery management game — prototype — Anton Konnov"><meta property="og:description" content="A brewery management game in development: brewing, stock and freshness, sales, growth and a tasting hall. How the core loop works and what already runs."><meta property="og:image" content="https://akonnov.com/assets/brewery/brewery-game-og-scene.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Brewery workshop in the game prototype: kettles, fermentation tanks, ingredient and finished-beer storage, staff"><meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"A brewery management game — working prototype","description":"A working browser prototype of an economic strategy game about growing a brewery: production, stock and freshness, sales, development and a tasting hall.","url":"https://akonnov.com/en/products/brewery-game/","inLanguage":"en-US","primaryImageOfPage":{"@type":"ImageObject","url":"https://akonnov.com/assets/brewery/workshop-scene-943.webp","width":943,"height":443},"about":{"@type":"VideoGame","name":"A brewery management game (working title)","genre":["Economic strategy","Management simulation"],"gamePlatform":"Web browser (prototype)","creativeWorkStatus":"Prototype in development","inLanguage":"ru","author":{"@type":"Person","name":"Anton Konnov","url":"https://akonnov.com/en/about/"},"image":"https://akonnov.com/assets/brewery/workshop-scene-943.webp"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://akonnov.com/en/"},{"@type":"ListItem","position":2,"name":"Books & Games","item":"https://akonnov.com/en/books-games/"},{"@type":"ListItem","position":3,"name":"A brewery management game","item":"https://akonnov.com/en/products/brewery-game/"}]}]}</script>
+  <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/brewery-project.css"><meta name="theme-color" content="#131516"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+</head><body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="/en/" aria-label="Konnov Consulting"><span class="brand-mark">K</span><span>KONNOV<br>CONSULTING</span></a><button class="menu-button" aria-label="Open menu" aria-expanded="false">Menu</button><nav aria-label="Primary navigation"><a href="/en/consulting/">Consulting</a><a class="active" href="/en/books-games/">Books &amp; Games</a><a href="/en/ai/">AI</a><a href="/en/portfolio/">Experience</a><a href="/en/cases/">Case Studies</a><a href="/en/about/">About Anton</a><a href="/en/insights/">Insights</a><a href="/en/contact/">Contact</a><a class="language-switcher" href="/products/brewery-game/" hreflang="ru" lang="ru">RU</a></nav></header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><span aria-hidden="true">›</span><a href="/en/books-games/">Books &amp; Games</a><span aria-hidden="true">›</span><span aria-current="page">A brewery management game</span></nav>
+<main id="main">
+  <section class="bg-hero">
+    <div class="bg-hero-text">
+      <div>
+        <p class="eyebrow">Economic strategy · browser prototype</p>
+        <h1>A <em>brewery</em> management game</h1>
+        <p class="lead">A strategy game about growing your own brewery. The player plans batches, watches tank capacity and stock freshness, finds buyers and decides where to invest the earnings: equipment, research, new beer styles, staff or brands.</p>
+        <div class="actions"><a class="button primary" href="#mvp">What already works</a><a class="button secondary" href="mailto:admin@akonnov.ru?subject=Brewery%20management%20game%20%E2%80%94%20discussion">Discuss the project</a></div>
+      </div>
+      <p class="bg-status"><b>In development</b>The core loop already runs in a browser prototype; content, balance and artwork are being developed now. The interface is currently in Russian, and “A brewery management game” is a working title.</p>
+    </div>
+    <figure class="bg-shot">
+      <img src="/assets/brewery/workshop-scene-943.webp" srcset="/assets/brewery/workshop-scene-640.webp 640w, /assets/brewery/workshop-scene-943.webp 943w" sizes="(max-width:1336px) calc(100vw - 56px), 1280px" width="943" height="443" alt="Isometric brewery workshop with brewing equipment, storage racks and staff">
+      <figcaption><b>Workshop</b><span>Brewing, fermentation, packaging and finished-beer storage on one production floor.</span><a href="/assets/brewery/workshop-scene-943.webp" class="text-link">Open full-size image →</a></figcaption>
+    </figure>
+  </section>
+
+  <section class="bg-facts" aria-label="Project at a glance">
+    <div><strong>Workshop and hall</strong><span>Two live scenes: production and a tasting hall with a host and guests.</span></div>
+    <div><strong>Full loop</strong><span>From batch planning to sales, income and growing the brewery.</span></div>
+    <div><strong>Its own mechanics</strong><span>An original computer game with its own rules, not a digital version of the Pivarium board game.</span></div>
+    <div><strong>TypeScript and Pixi.js</strong><span>Isometric graphics and animation right in the browser, with saved progress.</span></div>
+  </section>
+
+  <section class="bg-section" aria-labelledby="loop-title">
+    <div class="bg-head">
+      <div><span class="bg-num">01 — Core loop</span><h2 id="loop-title">What the player does</h2></div>
+      <p>This is not an idle clicker where you simply wait and collect coins. Every batch goes through a production chain, resources are limited at each step, and how the player allocates them shapes what they can do next.</p>
+    </div>
+    <ol class="bg-loop">
+      <li><h3>Plan the batch</h3><p>Style, volume and packaging — kegs, bottles or cans. Cost, expected revenue, margin and spoilage risk are shown before launch.</p></li>
+      <li><h3>Brew</h3><p>The kettle and the brewer are busy while brewing, so there is almost always less capacity than you would like.</p></li>
+      <li><h3>Ferment</h3><p>The batch occupies a fermentation tank for several in-game days. The number of tanks limits how many batches run at once.</p></li>
+      <li><h3>Package</h3><p>The packaging line fills the chosen containers. It can be sped up by buying equipment.</p></li>
+      <li><h3>Stock and freshness</h3><p>Finished beer keeps only for a limited time. Old stock loses freshness and has to be written off.</p></li>
+      <li><h3>Sell and deliver</h3><p>Buyers offer different prices and volumes. Delivery is by customer pickup or a carrier.</p></li>
+      <li><h3>Income</h3><p>Revenue minus ingredients, energy and water, packaging, tax, wages and other costs.</p></li>
+      <li><h3>Grow</h3><p>Equipment, recipe research, new styles, staff and brands — and the next cycle plays differently.</p><p class="bg-loop-return">↺ Back to planning</p></li>
+    </ol>
+    <p class="bg-loop-note">The diagram shows the steps one after another; in the game they overlap: while one batch ferments in a tank, the next one is already brewing and finished beer waits for a buyer in the warehouse.</p>
+  </section>
+
+  <section class="bg-section alt" aria-labelledby="decisions-title">
+    <div class="bg-head">
+      <div><span class="bg-num">02 — Decisions</span><h2 id="decisions-title">Why the choices matter</h2></div>
+      <p>The interest comes from clear trade-offs rather than the number of buttons. Every decision costs something — money, time, an occupied tank or a missed buyer.</p>
+    </div>
+    <div class="bg-decisions">
+      <article><span>Volume and timing</span><h3>How much and when to brew</h3><p>A larger batch yields more beer, but it occupies tanks for longer and may not find its buyer in time.</p></article>
+      <article><span>Warehouse</span><h3>Freshness and storage</h3><p>Beer cannot be stockpiled forever: shelf life depends on packaging, and surplus goes to disposal. Warehouse security lowers the risk of partial theft of finished stock.</p></article>
+      <article><span>Market</span><h3>Who to sell to</h3><p>Buyers come and go. The batch card shows in advance who is ready to buy and whether you will make it in time.</p></article>
+      <article><span>Equipment</span><h3>What to invest in</h3><p>Paying cash or taking credit, upgrades and maintenance — every investment competes with the others. Equipment wears and can break down.</p></article>
+      <article><span>Staff</span><h3>Who does what</h3><p>People have skills and specific jobs. A technologist researching a recipe is not available for anything else at that time.</p></article>
+      <article><span>Research</span><h3>Which styles to unlock</h3><p>A new recipe costs money and the technologist’s time, and its value depends on the market. In the game, for example, porter is valued by restaurants and shops, while Double IPA pays off through special fresh-beer deliveries.</p></article>
+    </div>
+    <div class="bg-example">
+      <blockquote>Brew another batch — or sell existing stock first and free up the tanks?</blockquote>
+      <ul>
+        <li><b>Brew now</b>A fermentation tank is tied up for several days while finished beer keeps ageing in the warehouse.</li>
+        <li><b>Sell first</b>The line sits idle for a while, but the stock goes out fresh and the money can fund equipment or research.</li>
+        <li><b>What you see before deciding</b>The new-batch card shows cost, expected revenue, current buyers and spoilage risk before you press the button.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-section" id="mvp" aria-labelledby="mvp-title">
+    <div class="bg-head">
+      <div><span class="bg-num">03 — Prototype</span><h2 id="mvp-title">What already works</h2></div>
+      <p>The prototype runs the whole loop — from batch planning to sales and growth — and remembers progress between sessions. The player’s main working tool is the new-batch card.</p>
+    </div>
+    <div class="bg-gallery">
+      <div class="bg-pair">
+        <figure class="bg-shot">
+          <img src="/assets/brewery/brew-plan-1400.webp" srcset="/assets/brewery/brew-plan-900.webp 900w, /assets/brewery/brew-plan-1400.webp 1400w" sizes="(max-width:1000px) calc(100vw - 36px), 760px" width="1400" height="1000" loading="lazy" decoding="async" alt="Prototype screen: workshop on the left and an open new-batch card on the right with style, volume and packaging choices, amount due, cost, expected revenue, margin, spoilage risk, current buyers and a cost breakdown">
+          <figcaption><b>New-batch card</b><span>Style, volume and packaging, alongside cost, revenue, margin, spoilage risk and matching buyers.</span><a href="/assets/brewery/brew-plan-1400.webp" class="text-link">Open full-size image →</a></figcaption>
+        </figure>
+        <div>
+          <h3>The calculation comes before the launch</h3>
+          <p>Before brewing, the player chooses a style, batch volume and packaging. The card immediately shows:</p>
+          <ul>
+            <li>the amount due, including any missing ingredients;</li>
+            <li>the cost and what it consists of: ingredients, energy and water, packaging, specialty malts;</li>
+            <li>expected revenue and margin after all costs;</li>
+            <li>quality, ready time and spoilage risk;</li>
+            <li>which buyers want such a batch and whether it will reach them in time.</li>
+          </ul>
+          <p>Locked items are styles and packaging still to be unlocked through research or purchase.</p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-has">
+      <p><b>An isometric workshop</b> with kettles, fermentation tanks, a filter, packaging line, ingredient storage, warehouse, lab, workshop bench and loading bay; equipment wears and needs maintenance.</p>
+      <p><b>Animated staff</b> walk around the floor to their equipment and workstations.</p>
+      <p><b>A production chain:</b> plan → brew → ferment → package → warehouse.</p>
+      <p><b>A warehouse with freshness:</b> shelf life, write-offs and protection against partial theft.</p>
+      <p><b>A market:</b> buyers, orders, delivery by pickup or carrier.</p>
+      <p><b>A “Company” section:</b> finance, people, equipment, development and brands.</p>
+      <p><b>Research costs money and time:</b> unlockable styles include porter, Double IPA, APA and German pilsner.</p>
+      <p><b>Saved progress:</b> batches, money and research are restored after a page reload.</p>
+    </div>
+  </section>
+
+  <section class="bg-section dark" aria-labelledby="hall-title">
+    <div class="bg-head">
+      <div><span class="bg-num">04 — Tasting hall</span><h2 id="hall-title">A separate scene for guests</h2></div>
+      <p>From the workshop the player can switch to a tasting hall. It is not a menu with a button but a live scene of its own, with a bar, tables, a host and guests — and a separate promotion tool.</p>
+    </div>
+    <div class="bg-gallery">
+      <div class="bg-pair">
+        <figure class="bg-shot">
+          <img src="/assets/brewery/tasting-hall-1400.webp" srcset="/assets/brewery/tasting-hall-900.webp 900w, /assets/brewery/tasting-hall-1400.webp 1400w" sizes="(max-width:1000px) calc(100vw - 36px), 760px" width="1400" height="1000" loading="lazy" decoding="async" alt="Prototype screen: isometric tasting hall with a bar, taps, barrels and tables, a host behind the counter; on the right, choosing an evening theme and two beers from stock">
+          <figcaption><b>Tasting hall</b><span>The host prepares the hall for the next evening; on the right, the theme and two beers are chosen from stock.</span><a href="/assets/brewery/tasting-hall-1400.webp" class="text-link">Open full-size image →</a></figcaption>
+        </figure>
+        <div>
+          <h3>How an evening works</h3>
+          <ul>
+            <li>The player picks a theme, for example “Meet the brewery” or “Dark beer night”.</li>
+            <li>Beer for the evening comes from real stock; fresh stock of the selected styles is required.</li>
+            <li>Number of guests, ticket revenue, preparation cost and time are shown before the start.</li>
+            <li>The host is a hired employee with a wage who serves guests automatically — no restaurant micromanagement or kitchen.</li>
+            <li>An evening brings income and promotes the specific brands that were presented, not a permanent bonus to everything.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-section" aria-labelledby="next-title">
+    <div class="bg-head">
+      <div><span class="bg-num">05 — Development</span><h2 id="next-title">What is being worked on</h2></div>
+      <p>The aim is a game that stays interesting rather than merely long: play time is not padded with waiting or repetitive grinding. New content is added when it gives the player a new choice.</p>
+    </div>
+    <div class="bg-next">
+      <div>
+        <h3>Gameplay</h3>
+        <ul>
+          <li>A classic brewery as a self-contained stage with a clear entry point for new players.</li>
+          <li>New events, beer styles and production options.</li>
+          <li>Challenges the player can recover from — no random game over.</li>
+          <li>Overall balance of the economy and pacing.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Art and presentation</h3>
+        <ul>
+          <li>Final equipment layout in the workshop.</li>
+          <li>Artwork and restrained animation for the warehouse, market and “Company” section.</li>
+          <li>Visible scene reactions to new recipes, brands and upgrades.</li>
+          <li>Translation of the interface into other languages.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-section dark" aria-labelledby="lab-title">
+    <div class="bg-head">
+      <div><span class="bg-num">06 — How it is made</span><h2 id="lab-title">An author’s concept and AI tools</h2></div>
+      <p>The game is one of the applied projects of Anton Konnov’s laboratory. Its concept, architecture and development follow the author’s own design; AI tools are used for engineering and for processing the artwork.</p>
+    </div>
+    <ol class="bg-flow">
+      <li><b>Concept and architecture</b><p>The economy, production, warehouse, market and growth are designed as one connected system in which every step has a clear cost.</p></li>
+      <li><b>Programming</b><p>Work is split into small tasks with clear criteria. Modules, tests and fixes are written with AI tools — Codex, Claude and the laboratory’s local models.</p></li>
+      <li><b>Art and motion</b><p>Equipment and scene images were generated and hand-selected. Staff walking motion was transferred with neural tools on the lab’s own GPU server.</p></li>
+      <li><b>Verification</b><p>Automated tests of the economy and saves, followed by a review of the live scene in a browser on desktop and mobile screens.</p></li>
+    </ol>
+  </section>
+
+  <section class="bg-section alt" aria-labelledby="related-title">
+    <div class="bg-head">
+      <div><span class="bg-num">07 — Related</span><h2 id="related-title">Other projects and materials</h2></div>
+      <p>Other games, applications and method write-ups produced in the same laboratory.</p>
+    </div>
+    <div class="bg-related">
+      <a href="/en/books-games/"><span>Games</span><b>Books &amp; Games</b><small>Anton’s board games and end-to-end game development.</small></a>
+      <a href="/en/products/praktika/"><span>Application</span><b>Praktika</b><small>A daily self-development practice app based on Anton’s own programmes.</small></a>
+      <a href="/en/insights/living-illustration/"><span>Method</span><b>Living illustration</b><small>How an illustration for Praktika was brought to life: masks, neural water and air, a seamless loop.</small></a>
+      <a href="/en/ai/creative-production/"><span>Case study</span><b>AI in digital production</b><small>How AI supports the production of visual content.</small></a>
+    </div>
+  </section>
+
+  <section class="contact contact-dark"><div><p class="eyebrow">Get in touch</p><h2>Interested in the game or in this way of building it?</h2></div><div class="contact-card"><p>Write if you would like to discuss the project, a collaboration or a similar development.</p><a href="mailto:admin@akonnov.ru?subject=Brewery%20management%20game%20%E2%80%94%20discussion">Discuss the project</a><a href="/en/contact/">All contacts</a></div></section>
+</main>
+<footer class="site-footer"><nav aria-label="Footer navigation"><a href="/en/consulting/">Consulting</a><a href="/en/books-games/">Books &amp; Games</a><a href="/en/ai/">AI</a><a href="/en/portfolio/">Experience</a><a href="/en/cases/">Case Studies</a><a href="/en/about/">About Anton</a><a href="/en/insights/">Insights</a><a href="/en/contact/">Contact</a><a href="/en/privacy/">Privacy</a></nav><div class="footer-contacts"><a href="mailto:admin@akonnov.ru">admin@akonnov.ru</a><a href="https://vk.com/anton.konnov" target="_blank" rel="noreferrer">VK ↗</a><a href="https://www.linkedin.com/in/antonkonnov/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div><small>© <span data-current-year>2026</span> Anton Konnov · Moscow</small></footer><script src="/script.js"></script></body></html>
