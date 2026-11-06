@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add("js")</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AI Fabrica: архитектура корпоративной AI-системы, роли агентов, RAG, расчётное ядро и изоляция данных на примере проекта AI Grain Trading.">
+  <title>AI Fabrica — архитектура AI-систем и агентов</title>
+  <link rel="canonical" href="https://akonnov.com/ai/ai-fabrica/">
+  <link rel="alternate" hreflang="ru" href="https://akonnov.com/ai/ai-fabrica/">
+  <link rel="alternate" hreflang="en" href="https://akonnov.com/en/ai/ai-fabrica/">
+  <link rel="alternate" hreflang="x-default" href="https://akonnov.com/ai/ai-fabrica/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Антон Коннов">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://akonnov.com/ai/ai-fabrica/">
+  <meta property="og:title" content="AI Fabrica — архитектура AI-систем и агентов">
+  <meta property="og:description" content="AI Fabrica: архитектура корпоративной AI-системы, роли агентов, RAG, расчётное ядро и изоляция данных на примере проекта AI Grain Trading.">
+  <meta property="og:image" content="https://akonnov.com/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"AI Fabrica — архитектура AI-систем и агентов","description":"AI Fabrica: архитектура корпоративной AI-системы, роли агентов, RAG, расчётное ядро и изоляция данных на примере проекта AI Grain Trading.","url":"https://akonnov.com/ai/ai-fabrica/","inLanguage":"ru-RU"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://akonnov.com/"},{"@type":"ListItem","position":2,"name":"ИИ","item":"https://akonnov.com/ai/"},{"@type":"ListItem","position":3,"name":"AI Fabrica","item":"https://akonnov.com/ai/ai-fabrica/"}]}]}</script>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/ai-fabrica.css">
+  <meta name="theme-color" content="#131516">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body class="fabrica-page"><a class="skip-link" href="#main">Перейти к содержимому</a>
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Коннов Консалтинг"><span class="brand-mark">К</span><span>КОННОВ<br>КОНСАЛТИНГ</span></a>
+  <button class="menu-button" aria-label="Открыть меню" aria-expanded="false">Меню</button>
+  <nav aria-label="Основная навигация"><a href="/consulting/">Консалтинг</a><a href="/books-games/">Книги и игры</a><a class="active" href="/ai/">ИИ</a><a href="/portfolio/">Опыт</a><a href="/cases/">Кейсы</a><a href="/about/">Об Антоне</a><a href="/insights/">Материалы</a><a href="/contact/">Контакты</a><a class="language-switcher" href="/en/ai/ai-fabrica/">EN</a></nav>
+</header>
+<nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span aria-hidden="true">›</span><a href="/ai/">ИИ</a><span aria-hidden="true">›</span><span aria-current="page">AI Fabrica</span></nav>
+
+<main id="main" class="fabrica-page">
+  <section class="fab-hero">
+    <div class="fab-container">
+      <p class="fab-eyebrow">AI Fabrica — архитектура</p>
+      <h1>Инфраструктура интеллектуального управления зернотрейдингом</h1>
+      <p class="fab-hero-text">AI Fabrica — частная вычислительная лаборатория для разработки и проверки AI-решений. Для проектируемой AI Grain Trading предусмотрено объединение учёта, аналитики, документов и специализированных агентов. Здесь — архитектура этого решения и распределение ответственности между его компонентами.</p>
+      <p class="fab-note">Проектируемая архитектура</p>
+    </div>
+  </section>
+
+  <section class="fab-section fab-white" id="fab-v2-arch"><div class="fab-container"><p class="fab-eyebrow">Целевая архитектура</p><h2>Роли вычислительных узлов</h2><p class="fab-v2-status">Целевая схема: выделенная среда проекта связана с лабораторными сервисами через управляемые интерфейсы. Развёртывание и изоляция клиентской среды проектируются отдельно.</p><div class="fab-v2-arch"><div class="fab-v2-band fab-v2-band-access"><div class="fab-v2-band-label">01 · Клиентская среда</div><div class="fab-v2-zone fab-v2-zone-access"><div class="fab-v2-node fab-v2-node-user"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-5.5 6.5-5.5s6.5 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5c3.2 0 6 1.8 6 4.5"/></svg><span class="fab-v2-node-title">Пользователи</span></div><div class="fab-v2-node-sub">Защищённый доступ к приложению проекта</div></div><div class="fab-v2-connector fab-v2-connector-h"><span class="fab-v2-connector-label">HTTPS</span></div><div class="fab-v2-node fab-v2-node-gateway"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg><span class="fab-v2-node-title">Topton — шлюз безопасности</span></div><div class="fab-v2-node-sub">Планируемые роли: firewall, VPN, администрирование</div><ul class="fab-v2-spec"><li>Intel Core i7-13620H</li><li>32 GB DDR5</li><li>6 × LAN</li></ul></div><div class="fab-v2-connector fab-v2-connector-h"><span class="fab-v2-connector-label">Доступ</span></div><div class="fab-v2-node fab-v2-node-project"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span class="fab-v2-node-title">Thunderobot — выделенный узел проекта</span></div><div class="fab-v2-node-sub">Планируемая среда проекта</div><ul class="fab-v2-spec"><li>AMD Ryzen AI Max+ 395</li><li>16 ядер / 32 потока</li><li>128 GB LPDDR5X unified</li><li>Radeon 8060S</li><li>NVMe 4 TB (план)</li></ul><ul class="fab-v2-services"><li>App API</li><li>PostgreSQL / Python-расчёты</li><li>Документы и RAG</li><li>Локальная инференс-модель</li></ul></div></div></div><div class="fab-v2-bridge"><div class="fab-v2-bridge-line"></div><div class="fab-v2-bridge-label">Thunderobot ⇄ разрешённое задание / результат ⇄ AI Worker</div><div class="fab-v2-bridge-line"></div></div><div class="fab-v2-band fab-v2-band-lab"><div class="fab-v2-band-label">02 · Дополнительные вычисления</div><p class="fab-v2-choice">Сервис выбирается по задаче и загрузке: AIserver или два GB10.</p><div class="fab-v2-zone fab-v2-zone-lab"><div class="fab-v2-node fab-v2-node-queue"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8M8 17h5"/></svg><span class="fab-v2-node-title">Очередь заданий / AI Worker</span></div><div class="fab-v2-node-sub">Ограниченный доступ, только авторизованные запросы</div><p class="fab-v2-note">Передаются минимально необходимые данные и правила обработки.</p></div><div class="fab-v2-branch" aria-hidden="true"><svg class="fab-v2-tree" viewBox="0 0 80 240" preserveAspectRatio="none"><defs><marker id="fab-tree-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#eebc00"/></marker></defs><path d="M0 120H24V60H76M24 120V180H76" fill="none" stroke="#eebc00" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#fab-tree-arrow)"/><path d="M24 60H76" fill="none" stroke="#eebc00" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#fab-tree-arrow)"/></svg></div><div class="fab-v2-node-stack"><div class="fab-v2-node fab-v2-node-compute"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span class="fab-v2-node-title">AIserver</span></div><div class="fab-v2-node-sub">Тяжёлый инференс и обработка</div><ul class="fab-v2-spec"><li>RTX PRO 6000 Blackwell 96 GB ECC</li><li>Ryzen 9 7900X</li><li>128 GB DDR5</li><li>NVMe 4 TB</li></ul><p class="fab-v2-note">Нет доступа к ОС или администрированию для вызывающих.</p></div><div class="fab-v2-node fab-v2-node-gb10"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 4v16"/></svg><span class="fab-v2-node-title">2 × NVIDIA GB10</span></div><div class="fab-v2-node-sub">Каждый: 128 GB unified memory</div><p class="fab-v2-note">Двухузловый DeepSeek V4 Flash, TP=2; единый сервис инференса.</p></div></div></div></div><div class="fab-v2-band fab-v2-band-support"><div class="fab-v2-band-label">03 · Управление и сохранность</div><div class="fab-v2-zone fab-v2-zone-support"><div class="fab-v2-node fab-v2-node-admin"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg><span class="fab-v2-node-title">AI Operator</span></div><div class="fab-v2-node-sub">Разработка и администрирование</div><ul class="fab-v2-spec"><li>Ryzen 9 9900X</li><li>64 GB DDR5</li><li>V100 32 GB + RX 7800 XT 16 GB</li></ul></div><div class="fab-v2-node fab-v2-node-nas"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="fab-v2-node-title">NAS</span></div><div class="fab-v2-node-sub">Netgear, 2 × 4 TB</div><p class="fab-v2-note">Целевая политика резервного копирования заказчика определяется отдельно.</p></div></div></div></div><div class="fab-v2-legend"><span class="fab-v2-legend-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Запрос пользователя</span><span class="fab-v2-legend-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Вычислительное задание / результат</span><span class="fab-v2-legend-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Администрирование / резервное копирование</span></div><p class="fab-v2-caption">Пользователи получают доступ только к приложению проекта, не к лабораторной сети. Очередь заданий связывает проект с дополнительными вычислительными ресурсами; административные и резервные узлы не находятся на пути обычного инференса.</p></div></section>
+
+  <section class="fab-section fab-ink">
+    <div class="fab-container">
+      <p class="fab-eyebrow">Программная архитектура</p>
+      <h2>Потоки данных и сервисы</h2>
+      <div class="fab-grid-2">
+        <div class="fab-card">
+          <h3>Обработка документов</h3>
+          <ol class="fab-flow">
+            <li>OCR и извлечение реквизитов</li>
+            <li>Embedding и векторный поиск (pgvector — кандидат)</li>
+            <li>Ранжирование результатов</li>
+            <li>Контроль версий и источников</li>
+          </ol>
+        </div>
+        <div class="fab-card">
+          <h3>Финансовые расчёты</h3>
+          <p>Детерминированные SQL-модули и Python-компоненты. Языковая модель интерпретирует результаты, но не заменяет расчётное ядро.</p>
+        </div>
+      </div>
+      <div class="fab-card fab-card-wide">
+        <h3>Модель заменяема</h3>
+        <p>Выбор LLM определяется качеством, контекстом, инструментальными вызовами и нагрузкой, а не только размером. Замена модели не требует переработки прикладного ядра.</p>
+      </div>
+    </div>
+  </section>
+<section class="fab-section fab-ink" id="fab-v2-models"><div class="fab-container"><p class="fab-eyebrow">Модели и маршрутизация</p><h2>Подтверждённые лабораторные маршруты и кандидаты проекта</h2><div class="fab-v2-models"><div class="fab-v2-model-card fab-v2-model-candidate"><div class="fab-v2-model-head"><span class="fab-v2-model-badge">Кандидат проекта</span><h3>Thunderobot (128 GB unified)</h3></div><p class="fab-v2-model-desc">Qwen3.8-Flash-Next рассматривается как кандидат. Для выделенного узла ещё нужно проверить объём памяти с KV-кэшем, параллельную нагрузку и выбранный рантайм. Если ресурсов недостаточно, подбирается компактная модель.</p><p class="fab-v2-note"></p></div><div class="fab-v2-model-card fab-v2-model-confirmed"><div class="fab-v2-model-head"><span class="fab-v2-model-badge">Лаборатория — подтверждено</span><h3>AIserver (RTX PRO 6000)</h3></div><p class="fab-v2-model-desc">Qwen3.8-Flash-Next NVFP4, проверенный контекст 262 144. Используется для анализа, работы с документами, программирования и вызова инструментов, когда задача помещается в контекст и ёмкость.</p><p class="fab-v2-note">Диспетчер учитывает параллельные задачи генерации изображений и видео; их вычислительное время планируется отдельно.</p></div><div class="fab-v2-model-card fab-v2-model-confirmed"><div class="fab-v2-model-head"><span class="fab-v2-model-badge">Лаборатория — подтверждено</span><h3>2 × GB10 (TP2)</h3></div><p class="fab-v2-model-desc">DeepSeek-V4-Flash-0731 TP2 — базовый маршрут для анализа больших пакетов документов, контекст 1 048 576. Выбор маршрута определяется качеством, контекстом и нагрузкой.</p><p class="fab-v2-note"></p></div><div class="fab-v2-model-card fab-v2-model-aux"><div class="fab-v2-model-head"><span class="fab-v2-model-badge">Дополнительно</span><h3>AI Operator (V100 32 GB)</h3></div><p class="fab-v2-model-desc">Qwen3.8-27B, уже развёрнута на 32 GB карте. Резервный вычислительный маршрут, вторая проверка ответов, извлечение данных и классификация при достаточном качестве результата.</p></div><div class="fab-v2-model-card fab-v2-model-embedding"><div class="fab-v2-model-head"><span class="fab-v2-model-badge">Кандидаты</span><h3>Embedding и RAG</h3></div><p class="fab-v2-model-desc">Кандидаты: семейства Qwen и BGE. bge-m3 существует в лаборатории как запасной вариант. pgvector — кандидат для векторного поиска; точные модели эмбеддингов, реранкера и OCR выбираются после проверки на документах компании.</p></div></div><p class="fab-v2-note">Роль агента не обязательно требует отдельной модели: несколько ролей могут использовать общий инференс-провайдер, но с изолированными контекстом, инструментами и правами. Бизнес-математика приложения детерминирована и не выполняется LLM. Внешние облачные API не подразумеваются; любая передача данных наружу требует одобрения.</p></div></section>
+<section class="fab-section fab-white" id="fab-v2-orchestration"><div class="fab-container"><p class="fab-eyebrow">Оркестрация</p><h2>Управляемый цикл обработки</h2><div class="fab-v2-orchestration"><div class="fab-v2-step"><span class="fab-v2-step-num">1</span><div class="fab-v2-step-body"><h3>Запрос и политика</h3><p>Определяются роль агента, разрешённые данные и необходимые инструменты.</p></div></div><div class="fab-v2-step"><span class="fab-v2-step-num">2</span><div class="fab-v2-step-body"><h3>Подготовка контекста</h3><p>Формируются структурированные записи, результаты расчётов и релевантные документы.</p></div></div><div class="fab-v2-step"><span class="fab-v2-step-num">3</span><div class="fab-v2-step-body"><h3>Маршрутизация</h3><p>Учитываются доступ к данным, размер и запас контекста, задержка и нагрузка. Если достаточно локальной модели проекта — используется она; иначе запрос направляется через авторизованный AI Worker. Для длинного контекста применяется DeepSeek, для скорости — Flash, когда задача помещается.</p></div></div><div class="fab-v2-step"><span class="fab-v2-step-num">4</span><div class="fab-v2-step-body"><h3>Выполнение и проверка</h3><p>Проверяются формат, числовые результаты, источники и результаты работы инструментов.</p></div></div><div class="fab-v2-step"><span class="fab-v2-step-num">5</span><div class="fab-v2-step-body"><h3>Возврат сотруднику</h3><p>Логирование; сотрудник даёт разрешение на запись, платежи и изменения контрактов.</p></div></div></div><div class="fab-v2-orchestration-example"><h3>Пример управления</h3><p>Менеджер спрашивает, почему снизилась маржа сделки. Координатор процесса вызывает сервис структурированных данных и расчётов, получает документы через RAG, маршрутизатор выбирает подходящую локальную модель или разрешённый вычислительный сервис лаборатории с учётом контекста и нагрузки. Модель формирует объяснение с источниками, сотрудник авторизует изменения. Координатор ведёт бизнес-шаги и вызовы инструментов, маршрутизатор моделей выбирает вычисления. Предлагаемое правило надёжности: ограниченные повторные попытки, таймауты, защита от дублирующих бизнес-операций.</p></div></div></section>
+
+  <section class="fab-section fab-white">
+    <div class="fab-container">
+      <p class="fab-eyebrow">Многоагентная система</p>
+      <h2>AI-агенты</h2>
+      <div class="fab-agents">
+        <div class="fab-agent-group">
+          <h3>Первичный этап</h3>
+          <div class="fab-agent-cards">
+            <article class="fab-agent-card">
+              <h4>AI-аналитик руководителя</h4>
+              <p><strong>Вход:</strong> управленческие запросы</p>
+              <p><strong>Инструменты:</strong> SQL, RAG</p>
+              <p><strong>Выход:</strong> аналитические сводки</p>
+              <p><strong>Полномочия:</strong> чтение данных</p>
+            </article>
+            <article class="fab-agent-card">
+              <h4>Контроль сделок</h4>
+              <p><strong>Вход:</strong> договоры, операции</p>
+              <p><strong>Инструменты:</strong> ERP-модули</p>
+              <p><strong>Выход:</strong> проверка отклонений</p>
+              <p><strong>Полномочия:</strong> чтение, уведомления</p>
+            </article>
+            <article class="fab-agent-card">
+              <h4>Обработка документов</h4>
+              <p><strong>Вход:</strong> сканы, PDF</p>
+              <p><strong>Инструменты:</strong> OCR, извлечение</p>
+              <p><strong>Выход:</strong> структурированные данные</p>
+              <p><strong>Полномочия:</strong> запись в черновик</p>
+            </article>
+            <article class="fab-agent-card">
+              <h4>Генератор отчётов</h4>
+              <p><strong>Вход:</strong> данные, шаблоны</p>
+              <p><strong>Инструменты:</strong> Excel, Word, PDF</p>
+              <p><strong>Выход:</strong> готовые документы</p>
+              <p><strong>Полномочия:</strong> формирование файлов</p>
+            </article>
+          </div>
+        </div>
+        <div class="fab-agent-group">
+          <h3>Последующие роли</h3>
+          <div class="fab-future-roles">
+            <p><strong>AI-финансовый директор</strong> — анализ ликвидности, денежных потоков, задолженности и стоимости финансирования; формирует управленческий брифинг.</p>
+            <p><strong>AI-коммерческий аналитик</strong> — оценка эффективности сделок, поставщиков и покупателей; готовит сравнительный анализ коммерческих условий.</p>
+            <p><strong>AI-логист</strong> — контроль перевозок, сроков и расходов; формирует алерты о задержках и перерасходе.</p>
+            <p><strong>AI-юрист</strong> — анализ договоров на рисковые условия; готовит проект документа для юридической проверки.</p>
+            <p><strong>AI-контролёр и аудитор</strong> — независимая проверка документов, расчётов и правил; формирует отчёт об исключениях без изменения данных.</p>
+            <p><strong>AI-секретарь</strong> — сопровождение поручений и сообщений; готовит проект административной сводки.</p>
+            <p><strong>AI-операционный координатор</strong> — контроль процессов и маршрутизация задач; эскалирует отклонения.</p>
+          </div>
+          <p class="fab-note">Роль агента не обязательно требует отдельной модели: несколько ролей могут использовать общий сервис, но разные инструменты и права. Критические действия (платежи, договоры) требуют одобрения человека. Аудитор только читает и проверяет, не изменяя данные.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fab-section fab-gold">
+    <div class="fab-container">
+      <p class="fab-eyebrow">Сценарии работы</p>
+      <h2>Примеры использования</h2>
+      <div class="fab-scenarios">
+        <article class="fab-scenario">
+          <h3>1. Входящий документ</h3>
+          <p>Документ проходит OCR и извлечение реквизитов. Система сопоставляет данные с договорами и сделками, проверяет полноту и корректность. После одобрения сотрудником данные импортируются в ERP.</p>
+        </article>
+        <article class="fab-scenario">
+          <h3>2. Управленческий запрос</h3>
+          <p>По вопросу руководителя система получает структурированные данные и выполняет программные расчёты. RAG подбирает связанные документы для проверки оснований ответа; при отсутствии данных система явно указывает на пробелы.</p>
+        </article>
+        <article class="fab-scenario">
+          <h3>3. Отклонение</h3>
+          <p>При обнаружении отклонения координатор подготавливает уведомление с необходимыми данными. Уполномоченный сотрудник принимает решение. Полноценная координация сквозных процессов относится к последующему развитию системы.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="fab-section fab-white">
+    <div class="fab-container">
+      <p class="fab-eyebrow">Надёжность и масштабирование</p>
+      <h2>Принципы эксплуатации</h2>
+      <div class="fab-grid-3">
+        <div class="fab-card">
+          <h3>Безопасность</h3>
+          <ul>
+            <li>Разделение прав пользователей и администраторов</li>
+            <li>Изолированные среды для каждого заказчика</li>
+            <li>Журналирование операций</li>
+            <li>Резервное копирование и тесты восстановления</li>
+          </ul>
+        </div>
+        <div class="fab-card">
+          <h3>Производительность</h3>
+          <ul>
+            <li>Тесты при перегрузке и недоступности узлов</li>
+            <li>Определение реальной ёмкости по результатам</li>
+            <li>Независимые обработчики задач</li>
+          </ul>
+        </div>
+        <div class="fab-card">
+          <h3>Масштабирование</h3>
+          <ul>
+            <li>Вертикальное — апгрейд узлов</li>
+            <li>Горизонтальное — добавление AI Worker</li>
+            <li>Модельное — разные модели для разных задач</li>
+            <li>Коммерческое — отдельные среды для клиентов</li>
+          </ul>
+        </div>
+      </div>
+      <p class="fab-note">Очередь заданий передаёт только разрешённые задания и минимально необходимый объём данных. Конечные пользователи не имеют доступа к дополнительным GPU-серверам. При превышении порогов нагрузки, сложности или времени ожидания маршрутизатор передаёт задачи на дополнительные ресурсы. Модельный сервис изолирован от бизнес-логики и может быть заменён. Независимые обработчики не требуют одной общей модели на всех узлах.</p>
+      <p class="fab-note">NAS и репликация сами по себе не обеспечивают непрерывность работы. Допустимую потерю данных, сроки восстановления и резервирование сервисов определяют отдельно для проекта и проверяют восстановлением из копий.</p>
+    </div>
+  </section>
+
+  <section class="fab-section fab-ink">
+    <div class="fab-container">
+      <p class="fab-eyebrow">Дополнительно</p>
+      <h2>Материалы и контакты</h2>
+      <div class="fab-links">
+        <a href="/ai/grain-trading/">AI Grain Trading — обзор</a>
+        <a href="/ai/local-ai-lab/">Локальная AI-лаборатория</a>
+        <a href="/insights/company-knowledge-base-rag/">База знаний и RAG</a>
+        <a href="/contact/">Связаться с нами</a>
+      </div>
+      <p class="fab-cta">Обсудим начальные системы и потоки данных вашего проекта? Свяжитесь с нами.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer"><nav aria-label="Навигация в подвале"><a href="/consulting/">Консалтинг</a><a href="/books-games/">Книги и игры</a><a href="/ai/">ИИ</a><a href="/portfolio/">Опыт</a><a href="/cases/">Кейсы</a><a href="/about/">Об Антоне</a><a href="/insights/">Материалы</a><a href="/contact/">Контакты</a><a href="/privacy/">Конфиденциальность</a></nav><div class="footer-contacts"><a href="mailto:admin@akonnov.ru">admin@akonnov.ru</a><a href="https://t.me/biz_in" target="_blank" rel="noreferrer">Telegram ↗</a><a href="https://vk.com/anton.konnov" target="_blank" rel="noreferrer">VK ↗</a><a href="https://www.linkedin.com/in/antonkonnov/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div><small>© <span data-current-year>2026</span> Антон Коннов · Москва</small></footer>
+<script src="/script.js"></script>
+</body>
+</html>

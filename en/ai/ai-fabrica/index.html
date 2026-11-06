@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add("js")</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AI Fabrica: enterprise AI architecture, agent roles, RAG, calculation services and isolated project environments illustrated through AI Grain Trading.">
+  <title>AI Fabrica — Enterprise AI Architecture and Agents</title>
+  <link rel="canonical" href="https://akonnov.com/en/ai/ai-fabrica/">
+  <link rel="alternate" hreflang="ru" href="https://akonnov.com/ai/ai-fabrica/">
+  <link rel="alternate" hreflang="en" href="https://akonnov.com/en/ai/ai-fabrica/">
+  <link rel="alternate" hreflang="x-default" href="https://akonnov.com/ai/ai-fabrica/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Anton Konnov">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://akonnov.com/en/ai/ai-fabrica/">
+  <meta property="og:title" content="AI Fabrica — Enterprise AI Architecture and Agents">
+  <meta property="og:description" content="AI Fabrica: enterprise AI architecture, agent roles, RAG, calculation services and isolated project environments illustrated through AI Grain Trading.">
+  <meta property="og:image" content="https://akonnov.com/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"AI Fabrica — Enterprise AI Architecture and Agents","description":"AI Fabrica: enterprise AI architecture, agent roles, RAG, calculation services and isolated project environments illustrated through AI Grain Trading.","url":"https://akonnov.com/en/ai/ai-fabrica/","inLanguage":"en-US"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://akonnov.com/en/"},{"@type":"ListItem","position":2,"name":"AI","item":"https://akonnov.com/en/ai/"},{"@type":"ListItem","position":3,"name":"AI Fabrica","item":"https://akonnov.com/en/ai/ai-fabrica/"}]}]}</script>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/ai-fabrica.css">
+  <meta name="theme-color" content="#131516">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body class="fabrica-page"><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="/en/" aria-label="Konnov Consulting"><span class="brand-mark">K</span><span>KONNOV<br>CONSULTING</span></a>
+  <button class="menu-button" aria-label="Open menu" aria-expanded="false">Menu</button>
+  <nav aria-label="Primary navigation"><a href="/en/consulting/">Consulting</a><a href="/en/books-games/">Books &amp; Games</a><a class="active" aria-current="page" href="/en/ai/">AI</a><a href="/en/portfolio/">Experience</a><a href="/en/cases/">Case Studies</a><a href="/en/about/">About Anton</a><a href="/en/insights/">Insights</a><a href="/en/contact/">Contact</a><a class="language-switcher" href="/ai/ai-fabrica/">RU</a></nav>
+</header>
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><span aria-hidden="true">›</span><a href="/en/ai/">AI</a><span aria-hidden="true">›</span><span aria-current="page">AI Fabrica</span></nav>
+
+<main id="main" class="fabrica-page">
+  <section class="fab-hero">
+    <div class="fab-container">
+      <p class="fab-eyebrow">AI Fabrica — Architecture</p>
+      <h1>Intelligent Grain Trading Management Infrastructure</h1>
+      <p class="fab-hero-text">AI Fabrica is a private laboratory for developing and testing AI solutions. The proposed AI Grain Trading project brings together business records, analytics, documents and specialised agents. This page explains its architecture and the responsibilities of each component.</p>
+      <p class="fab-note">Target architecture</p>
+    </div>
+  </section>
+
+  <section class="fab-section fab-white" id="fab-v2-arch-en"><div class="fab-container"><p class="fab-eyebrow">Target Architecture</p><h2>Compute Node Roles</h2><p class="fab-v2-status">Target scheme: dedicated project environment is connected to lab services through managed interfaces. Deployment and isolation of the client environment are designed separately.</p><div class="fab-v2-arch"><div class="fab-v2-band fab-v2-band-access"><div class="fab-v2-band-label">01 · Client environment</div><div class="fab-v2-zone fab-v2-zone-access"><div class="fab-v2-node fab-v2-node-user"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-5.5 6.5-5.5s6.5 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.5c3.2 0 6 1.8 6 4.5"/></svg><span class="fab-v2-node-title">Users</span></div><div class="fab-v2-node-sub">Protected access to project application</div></div><div class="fab-v2-connector fab-v2-connector-h"><span class="fab-v2-connector-label">HTTPS</span></div><div class="fab-v2-node fab-v2-node-gateway"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg><span class="fab-v2-node-title">Topton — Security Gateway</span></div><div class="fab-v2-node-sub">Planned roles: firewall, VPN, administration</div><ul class="fab-v2-spec"><li>Intel Core i7-13620H</li><li>32 GB DDR5</li><li>6 × LAN</li></ul></div><div class="fab-v2-connector fab-v2-connector-h"><span class="fab-v2-connector-label">App access</span></div><div class="fab-v2-node fab-v2-node-project"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span class="fab-v2-node-title">Thunderobot — Dedicated Project Node</span></div><div class="fab-v2-node-sub">Planned project environment</div><ul class="fab-v2-spec"><li>AMD Ryzen AI Max+ 395</li><li>16 cores / 32 threads</li><li>128 GB LPDDR5X unified</li><li>Radeon 8060S</li><li>NVMe 4 TB (planned)</li></ul><ul class="fab-v2-services"><li>App API</li><li>PostgreSQL / Python calculations</li><li>Documents and RAG</li><li>Local inference model</li></ul></div></div></div><div class="fab-v2-bridge"><div class="fab-v2-bridge-line"></div><div class="fab-v2-bridge-label">Thunderobot ⇄ authorized job / result ⇄ AI Worker</div><div class="fab-v2-bridge-line"></div></div><div class="fab-v2-band fab-v2-band-lab"><div class="fab-v2-band-label">02 · Additional compute</div><p class="fab-v2-choice">Select a service by task requirements and load: AIserver or the two GB10 nodes.</p><div class="fab-v2-zone fab-v2-zone-lab"><div class="fab-v2-node fab-v2-node-queue"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8M8 17h5"/></svg><span class="fab-v2-node-title">Job Queue / AI Worker</span></div><div class="fab-v2-node-sub">Restricted access, only authorized requests</div><p class="fab-v2-note">Only minimal necessary data and processing rules are transferred.</p></div><div class="fab-v2-branch" aria-hidden="true"><svg class="fab-v2-tree" viewBox="0 0 80 240" preserveAspectRatio="none"><defs><marker id="fab-tree-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#eebc00"/></marker></defs><path d="M0 120H24V60H76M24 120V180H76" fill="none" stroke="#eebc00" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#fab-tree-arrow)"/><path d="M24 60H76" fill="none" stroke="#eebc00" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#fab-tree-arrow)"/></svg></div><div class="fab-v2-node-stack"><div class="fab-v2-node fab-v2-node-compute"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span class="fab-v2-node-title">AIserver</span></div><div class="fab-v2-node-sub">Heavy inference and processing</div><ul class="fab-v2-spec"><li>RTX PRO 6000 Blackwell 96 GB ECC</li><li>Ryzen 9 7900X</li><li>128 GB DDR5</li><li>NVMe 4 TB</li></ul><p class="fab-v2-note">No OS or admin access for callers.</p></div><div class="fab-v2-node fab-v2-node-gb10"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 4v16"/></svg><span class="fab-v2-node-title">2 × NVIDIA GB10</span></div><div class="fab-v2-node-sub">Each: 128 GB unified memory</div><p class="fab-v2-note">Two-node DeepSeek V4 Flash, TP=2; a single inference service.</p></div></div></div></div><div class="fab-v2-band fab-v2-band-support"><div class="fab-v2-band-label">03 · Management and backup</div><div class="fab-v2-zone fab-v2-zone-support"><div class="fab-v2-node fab-v2-node-admin"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg><span class="fab-v2-node-title">AI Operator</span></div><div class="fab-v2-node-sub">Development and administration</div><ul class="fab-v2-spec"><li>Ryzen 9 9900X</li><li>64 GB DDR5</li><li>V100 32 GB + RX 7800 XT 16 GB</li></ul></div><div class="fab-v2-node fab-v2-node-nas"><div class="fab-v2-node-head"><svg class="fab-v2-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="fab-v2-node-title">NAS</span></div><div class="fab-v2-node-sub">Netgear, 2 × 4 TB</div><p class="fab-v2-note">Target customer backup policy is defined separately.</p></div></div></div></div><div class="fab-v2-legend"><span class="fab-v2-legend-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>User request</span><span class="fab-v2-legend-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Compute job / result</span><span class="fab-v2-legend-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Admin / backup</span></div><p class="fab-v2-caption">Users get access only to the project application, not the lab network. The job queue connects the project to additional compute resources; administrative and backup nodes are not on the ordinary inference path.</p></div></section>
+
+  <section class="fab-section fab-ink">
+    <div class="fab-container">
+      <p class="fab-eyebrow">Software Architecture</p>
+      <h2>Data Flows and Services</h2>
+      <div class="fab-grid-2">
+        <div class="fab-card">
+          <h3>Document Processing</h3>
+          <ol class="fab-flow">
+            <li>OCR and attribute extraction</li>
+            <li>Embedding and vector search (pgvector candidate)</li>
+            <li>Result reranking</li>
+            <li>Version and source control</li>
+          </ol>
+        </div>
+        <div class="fab-card">
+          <h3>Financial Calculations</h3>
+          <p>Deterministic SQL modules and Python components. The language model interprets results but does not replace the calculation core.</p>
+        </div>
+      </div>
+      <div class="fab-card fab-card-wide">
+        <h3>Model Replaceability</h3>
+        <p>LLM selection is based on quality, context, tool calling, and load, not just size. Replacing the model does not require reworking the application core.</p>
+      </div>
+    </div>
+  </section>
+<section class="fab-section fab-ink" id="fab-v2-models-en"><div class="fab-container"><p class="fab-eyebrow">Models and Routing</p><h2>Confirmed Lab Routes and Project Candidates</h2><div class="fab-v2-models"><div class="fab-v2-model-card fab-v2-model-candidate"><div class="fab-v2-model-head"><span class="fab-v2-model-badge">Project Candidate</span><h3>Thunderobot (128 GB unified)</h3></div><p class="fab-v2-model-desc">Qwen3.8-Flash-Next is considered a candidate. For the dedicated node, memory with KV cache, parallel load, and chosen runtime still need to be checked. If resources are insufficient, a compact model is selected.</p><p class="fab-v2-note"></p></div><div class="fab-v2-model-card fab-v2-model-confirmed"><div class="fab-v2-model-head"><span class="fab-v2-model-badge">Lab — Confirmed</span><h3>AIserver (RTX PRO 6000)</h3></div><p class="fab-v2-model-desc">Qwen3.8-Flash-Next NVFP4, verified context 262 144. Used for analysis, document work, programming, and tool use when the task fits context and capacity.</p><p class="fab-v2-note">The dispatcher accounts for parallel image and video generation tasks; their compute time is planned separately.</p></div><div class="fab-v2-model-card fab-v2-model-confirmed"><div class="fab-v2-model-head"><span class="fab-v2-model-badge">Lab — Confirmed</span><h3>2 × GB10 (TP2)</h3></div><p class="fab-v2-model-desc">DeepSeek-V4-Flash-0731 TP2 — baseline for analysing large document collections, context 1 048 576. Route selection is based on quality, context, and load.</p><p class="fab-v2-note"></p></div><div class="fab-v2-model-card fab-v2-model-aux"><div class="fab-v2-model-head"><span class="fab-v2-model-badge">Additional</span><h3>AI Operator (V100 32 GB)</h3></div><p class="fab-v2-model-desc">Qwen3.8-27B, already deployed on a 32 GB card. Backup compute capacity, a second review of answers, data extraction and classification where output quality is sufficient.</p></div><div class="fab-v2-model-card fab-v2-model-embedding"><div class="fab-v2-model-head"><span class="fab-v2-model-badge">Candidates</span><h3>Embedding and RAG</h3></div><p class="fab-v2-model-desc">Candidates: Qwen and BGE families. bge-m3 exists in the lab as a fallback. pgvector is a candidate for vector search; exact embedding, reranker, and OCR models are selected after validation on company documents.</p></div></div><p class="fab-v2-note">An agent role does not necessarily require a separate model: multiple roles may share an inference provider but with isolated context, tools, and permissions. Application business math is deterministic and not performed by LLM. External cloud APIs are not implied; any external data transfer requires approval.</p></div></section>
+<section class="fab-section fab-white" id="fab-v2-orchestration-en"><div class="fab-container"><p class="fab-eyebrow">Orchestration</p><h2>Controlled Processing Loop</h2><div class="fab-v2-orchestration"><div class="fab-v2-step"><span class="fab-v2-step-num">1</span><div class="fab-v2-step-body"><h3>Request and Policy</h3><p>Agent role, permitted data, and required tools are defined.</p></div></div><div class="fab-v2-step"><span class="fab-v2-step-num">2</span><div class="fab-v2-step-body"><h3>Context Preparation</h3><p>Structured records, calculation results, and relevant documents are prepared.</p></div></div><div class="fab-v2-step"><span class="fab-v2-step-num">3</span><div class="fab-v2-step-body"><h3>Routing</h3><p>Data access, size and context headroom, latency, and load are considered. If the local project model is sufficient, it is used; otherwise the request goes through the authorized AI Worker. For long context, DeepSeek is used; for speed, Flash when it fits.</p></div></div><div class="fab-v2-step"><span class="fab-v2-step-num">4</span><div class="fab-v2-step-body"><h3>Execution and Validation</h3><p>Format, numerical results, sources, and tool outcomes are validated.</p></div></div><div class="fab-v2-step"><span class="fab-v2-step-num">5</span><div class="fab-v2-step-body"><h3>Return to Employee</h3><p>Logging; employee grants permission for writes, payments, and contract changes.</p></div></div></div><div class="fab-v2-orchestration-example"><h3>Management Example</h3><p>A manager asks why a trade margin fell. The process coordinator calls the structured data and calculation service, retrieves documents via RAG, and the router selects an adequate local model or an authorised lab compute service based on context and load. The model writes explanations with sources, and the employee authorizes any change. The coordinator handles business steps and tool calls; the model router chooses compute explicitly. Proposed reliability rule: bounded retries, timeouts, and no duplicate business writes.</p></div></div></section>
+
+  <section class="fab-section fab-white">
+    <div class="fab-container">
+      <p class="fab-eyebrow">Multi-Agent System</p>
+      <h2>AI Agents</h2>
+      <div class="fab-agents">
+        <div class="fab-agent-group">
+          <h3>Initial Stage</h3>
+          <div class="fab-agent-cards">
+            <article class="fab-agent-card">
+              <h4>Executive AI Analyst</h4>
+              <p><strong>Input:</strong> management queries</p>
+              <p><strong>Tools:</strong> SQL, RAG</p>
+              <p><strong>Output:</strong> analytical summaries</p>
+              <p><strong>Authority:</strong> read-only</p>
+            </article>
+            <article class="fab-agent-card">
+              <h4>Trade Checker</h4>
+              <p><strong>Input:</strong> contracts, operations</p>
+              <p><strong>Tools:</strong> ERP modules</p>
+              <p><strong>Output:</strong> deviation alerts</p>
+              <p><strong>Authority:</strong> read, notify</p>
+            </article>
+            <article class="fab-agent-card">
+              <h4>Document Processor</h4>
+              <p><strong>Input:</strong> scans, PDFs</p>
+              <p><strong>Tools:</strong> OCR, extraction</p>
+              <p><strong>Output:</strong> structured data</p>
+              <p><strong>Authority:</strong> draft write</p>
+            </article>
+            <article class="fab-agent-card">
+              <h4>Report Generator</h4>
+              <p><strong>Input:</strong> data, templates</p>
+              <p><strong>Tools:</strong> Excel, Word, PDF</p>
+              <p><strong>Output:</strong> ready documents</p>
+              <p><strong>Authority:</strong> file creation</p>
+            </article>
+          </div>
+        </div>
+        <div class="fab-agent-group">
+          <h3>Future Roles</h3>
+          <div class="fab-future-roles">
+            <p><strong>AI CFO</strong> — analyzes liquidity, cash flows, debt, and funding costs; produces a management briefing.</p>
+            <p><strong>AI Commercial Analyst</strong> — evaluates deal, supplier, and buyer performance; prepares a comparative analysis of commercial terms.</p>
+            <p><strong>AI Logistics Manager</strong> — monitors shipments, timing, and costs; generates delay and cost overrun alerts.</p>
+            <p><strong>AI Legal Counsel</strong> — reviews contracts for risky terms; prepares a draft document for legal review.</p>
+            <p><strong>AI Controller and Auditor</strong> — independently verifies documents, calculations, and rules; produces an exception report without modifying data.</p>
+            <p><strong>AI Secretary</strong> — manages tasks and messages; prepares a draft administrative summary.</p>
+            <p><strong>AI Operations Coordinator</strong> — monitors process states and routes tasks; escalates deviations.</p>
+          </div>
+          <p class="fab-note">An agent role does not necessarily require a separate model: multiple roles can share a common service but use different tools and permissions. Critical actions (payments, contracts) require human approval. The auditor only reads and checks, never modifies data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fab-section fab-gold">
+    <div class="fab-container">
+      <p class="fab-eyebrow">Workflow Scenarios</p>
+      <h2>Use Cases</h2>
+      <div class="fab-scenarios">
+        <article class="fab-scenario">
+          <h3>1. Incoming Document</h3>
+          <p>The document undergoes OCR and attribute extraction. The system cross-references data with contracts and deals, validates completeness and correctness. After employee approval, data is imported into the ERP.</p>
+        </article>
+        <article class="fab-scenario">
+          <h3>2. Management Query</h3>
+          <p>The system retrieves structured data and runs software calculations to address the management question. RAG retrieves related documents so the basis of the answer can be checked; missing data is explicitly identified.</p>
+        </article>
+        <article class="fab-scenario">
+          <h3>3. Deviation</h3>
+          <p>When a deviation is detected, the coordinator prepares an alert with the necessary evidence. An authorised employee makes the decision. Full coordination of end-to-end processes belongs to a later development stage.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="fab-section fab-white">
+    <div class="fab-container">
+      <p class="fab-eyebrow">Reliability and Scaling</p>
+      <h2>Operational Principles</h2>
+      <div class="fab-grid-3">
+        <div class="fab-card">
+          <h3>Security</h3>
+          <ul>
+            <li>Separation of user and admin permissions</li>
+            <li>Isolated environments per customer</li>
+            <li>Operation logging</li>
+            <li>Backup and restore testing</li>
+          </ul>
+        </div>
+        <div class="fab-card">
+          <h3>Performance</h3>
+          <ul>
+            <li>Tests under overload and node unavailability</li>
+            <li>Actual capacity determined by results</li>
+            <li>Independent task workers</li>
+          </ul>
+        </div>
+        <div class="fab-card">
+          <h3>Scaling</h3>
+          <ul>
+            <li>Vertical — node upgrades</li>
+            <li>Horizontal — adding AI Workers</li>
+            <li>Model — different models for different tasks</li>
+            <li>Commercial — separate environments for clients</li>
+          </ul>
+        </div>
+      </div>
+      <p class="fab-note">The job queue transfers only authorized tasks and the minimum necessary data volume. End users have no access to additional GPU servers. When load, complexity, or timeout thresholds are exceeded, the router transfers tasks to additional resources. The model service is isolated from business logic and can be replaced. Independent workers do not require a single shared model across all nodes.</p>
+      <p class="fab-note">NAS storage and replication do not by themselves ensure service continuity. Acceptable data loss, recovery times and service redundancy must be defined for the project and checked through restore tests.</p>
+    </div>
+  </section>
+
+  <section class="fab-section fab-ink">
+    <div class="fab-container">
+      <p class="fab-eyebrow">Additional</p>
+      <h2>Resources and Contact</h2>
+      <div class="fab-links">
+        <a href="/en/ai/grain-trading/">AI Grain Trading — Overview</a>
+        <a href="/en/ai/local-ai-lab/">Local AI Lab</a>
+        <a href="/en/insights/company-knowledge-base-rag/">Knowledge Base and RAG</a>
+        <a href="/en/contact/">Contact Us</a>
+      </div>
+      <p class="fab-cta">Discuss your initial systems and data flows? Contact us.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer"><nav aria-label="Footer navigation"><a href="/en/consulting/">Consulting</a><a href="/en/books-games/">Books &amp; Games</a><a href="/en/ai/">AI</a><a href="/en/portfolio/">Experience</a><a href="/en/cases/">Case Studies</a><a href="/en/about/">About Anton</a><a href="/en/insights/">Insights</a><a href="/en/contact/">Contact</a><a href="/en/privacy/">Privacy</a></nav><div class="footer-contacts"><a href="mailto:admin@akonnov.ru">admin@akonnov.ru</a><a href="https://t.me/biz_in" target="_blank" rel="noreferrer">Telegram ↗</a><a href="https://vk.com/anton.konnov" target="_blank" rel="noreferrer">VK ↗</a><a href="https://www.linkedin.com/in/antonkonnov/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div><small>© <span data-current-year>2026</span> Anton Konnov · Moscow</small></footer>
+<script src="/script.js"></script>
+</body>
+</html>
