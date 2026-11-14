@@ -104,3 +104,8 @@
 }
 @media(max-width:700px){.material-card-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.analytics-link-grid a,.material-card{transition:none}}
+
+/* The square source has 7% white padding at both ends; crop in the frame,
+   never distort the portrait or change its original file. */
+.about-portrait-frame{aspect-ratio:1/1;overflow:hidden;border:1px solid var(--ink);background:var(--paper)}
+.about-portrait-frame img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center;border:0;transform:scale(1.17);transform-origin:center}
