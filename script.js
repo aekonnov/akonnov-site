@@ -6,6 +6,9 @@ const strings = isEnglish ? {
   analyticsText: 'We use Yandex Metrica only with your consent to understand site traffic and improve the website.',
   learnMore: 'Learn more', acceptAnalytics: 'Allow analytics', necessaryOnly: 'Necessary only',
   privacyPath: '/en/privacy/', verifyAntispam: 'Please complete the anti-spam check.',
+  topicLabel: 'Subject', reviewTopic: 'Business process review before adopting AI',
+  describeTask: 'Please describe the task as well as the subject.',
+  topicAndMessageTooLong: 'The subject and description together must be no more than 4,000 characters.',
   sending: 'Sending…', sendFailed: 'Could not send your enquiry.',
   sent: 'Your enquiry has been sent. Thank you!',
   sendFailedEmail: 'Could not send your enquiry. Please email admin@akonnov.ru.'
@@ -14,6 +17,9 @@ const strings = isEnglish ? {
   analyticsText: 'Мы используем Яндекс Метрику только с вашего согласия, чтобы понимать посещаемость и улучшать сайт.',
   learnMore: 'Подробнее', acceptAnalytics: 'Разрешить аналитику', necessaryOnly: 'Только необходимые',
   privacyPath: '/privacy/', verifyAntispam: 'Подтвердите антиспам-проверку.',
+  topicLabel: 'Тема обращения', reviewTopic: 'Разбор процесса перед внедрением ИИ',
+  describeTask: 'Опишите задачу, одной темы недостаточно.',
+  topicAndMessageTooLong: 'Сократите описание: тема и описание вместе не должны превышать 4 000 знаков.',
   sending: 'Отправляем…', sendFailed: 'Не удалось отправить заявку.',
   sent: 'Заявка отправлена. Спасибо!',
   sendFailedEmail: 'Не удалось отправить заявку. Напишите на admin@akonnov.ru.'
@@ -140,6 +146,20 @@ const contactForm = document.querySelector('[data-contact-form]');
 if (contactForm) {
   const status = contactForm.querySelector('[data-contact-form-status]');
   const submit = contactForm.querySelector('button[type="submit"]');
+  const descriptionField = contactForm.querySelector('textarea[name="message"]');
+  const descriptionLabel = descriptionField?.closest('label');
+  let topicField;
+  if (descriptionLabel && new URLSearchParams(location.search).get('topic') === 'ai-process-review') {
+    const label = document.createElement('label');
+    label.textContent = strings.topicLabel;
+    topicField = document.createElement('input');
+    topicField.type = 'text';
+    topicField.name = 'topic';
+    topicField.maxLength = 120;
+    topicField.defaultValue = strings.reviewTopic;
+    label.append(topicField);
+    descriptionLabel.before(label);
+  }
   let formStartSent = false;
   contactForm.addEventListener('input', () => {
     if (!formStartSent) {
@@ -155,10 +175,22 @@ if (contactForm) {
       return;
     }
     const data = new FormData(contactForm);
+    const topic = topicField?.value.trim();
+    const description = data.get('message');
+    if (topic && !description.trim()) {
+      status.textContent = strings.describeTask;
+      descriptionField.focus();
+      return;
+    }
+    const message = topic ? `${strings.topicLabel}: ${topic}\n\n${description}` : description;
+    if (topic && message.trim().length > descriptionField.maxLength) {
+      status.textContent = strings.topicAndMessageTooLong;
+      return;
+    }
     const payload = {
       name: data.get('name'),
       contact: data.get('contact'),
-      message: data.get('message'),
+      message,
       website: data.get('website'),
       consent: data.get('consent') === 'on',
       turnstileToken: token
