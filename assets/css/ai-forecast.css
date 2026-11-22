@@ -1,0 +1,25 @@
+.forecast .ag-number { font-size: .9rem; }
+.forecast .ag-overview ul { margin: 0 0 1rem; padding-inline-start: 1.2rem; }
+.forecast .ag-overview li { font-size: 1rem; }
+.forecast .ag-overview a, .forecast .forecast-byline a, .forecast .forecast-offer a { color: inherit; font-weight: 700; text-underline-offset: 4px; }
+.forecast .forecast-overview-links, .forecast .forecast-offer-links { display: flex; flex-wrap: wrap; gap: .7rem 1.5rem; }
+.forecast .forecast-byline { margin-top: 1.4rem; font-size: .95rem; line-height: 1.7; }
+.forecast .forecast-book { margin: 0 0 2.3rem; scroll-margin-top: 120px; }
+.forecast .forecast-book .ag-card { display: grid; grid-template-columns: clamp(62px, 13vw, 120px) minmax(0,1fr); gap: clamp(12px, 3vw, 24px); align-items: start; padding: clamp(14px, 3vw, 24px); }
+.forecast .forecast-book img { width: 100%; height: auto; display: block; border-radius: 3px; }
+.forecast .forecast-book .ag-card div { display: grid; gap: .45rem; }
+.forecast .forecast-book .ag-card small { font-size: .85rem; }
+.forecast .forecast-book .ag-card b { font-size: clamp(1.13rem, 2vw, 1.6rem); }
+.forecast .forecast-book .ag-card em { font-size: .95rem; text-decoration: underline; text-underline-offset: 4px; }
+.forecast .ag-section p.forecast-reading { border-left: 2px solid var(--ag-border); padding-left: 1rem; font-size: 1rem; }
+.forecast .ag-section h3 { font-size: 1.18rem; line-height: 1.45; margin: 1.6rem 0 .6rem; }
+.forecast .forecast-years { display: grid; gap: .75rem; padding: 0; list-style: none; }
+.forecast .forecast-years li { padding: 1.05rem 1.2rem; border-left: 3px solid var(--ag-accent); background: var(--ag-soft); margin: 0; min-width: 0; }
+.forecast .forecast-years h3 { margin: 0 0 .45rem; }
+.forecast .forecast-years p { margin: 0; font-size: 1.04rem; line-height: 1.65; }
+.forecast .forecast-signals { padding-left: 1.4rem; }
+.forecast .forecast-offer { margin: 1.5rem 0 0; }
+.forecast .forecast-offer h3 { font-size: 1.3rem; line-height: 1.4; margin: 0 0 .75rem; }
+.forecast .forecast-offer p { max-width: 52rem; }
+.forecast .forecast-offer-links { margin-top: 1rem; }
+.forecast .ag-text nav a:focus-visible, .forecast .ag-overview a:focus-visible { outline: 2px solid var(--ag-accent); outline-offset: 3px; }
