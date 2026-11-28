@@ -33,10 +33,22 @@
   <h2>Что исчезло из работы</h2>
   <p>«Где мой заказ?» — вопрос с готовым ответом. Его можно взять из базы и показать клиенту без участия оператора. Для этого не обязательно покупать языковую модель. А вот «с меня дважды списали деньги» — начало разговора: нужно сверить два платежа, понять, что произошло, и при необходимости оформить возврат. ИИ может найти нужные записи или предложить ответ. Если сотрудник всё равно ведёт дело до конца, эта работа у него осталась.</p>
   <p>Полезно на минуту забыть про счётчик сообщений и открыть историю обращений. Если покупатель написал повторно с той же проблемой, первый ответ был лишь началом работы. Если вопрос решён, клиенту не пришлось писать снова, а оператор не открывал карточку заказа, часть работы действительно ушла. Сколько таких обращений должно уйти, чтобы можно было убрать целую смену, — уже вопрос к расписанию, особенно в часы пик.</p>
+<a class="ag-card wf-context-card" href="/insights/process-audit/"><small>По теме · Аудит процесса</small><b>Как провести аудит бизнес-процесса</b><span>Что увидеть в работе отдела до того, как выбирать программу или менять численность.</span><i aria-hidden="true">↗</i></a>
 </section>
 <section class="ag-section" id="unit-economics">
   <h2>Сэкономили часы. Что стало с деньгами?</h2>
   <p>Возьмём службу, которая решает 2 000 обращений в месяц. Без ИИ оператор тратит на одно в среднем 12 минут, час его работы стоит компании 1 500 ₽. С ИИ на проверку ответа уходит четыре минуты; в 15% случаев нужны ещё 15 минут на разбор. За модели, эксплуатацию и поддержку компания платит 160 000 ₽ в месяц. Это пример для сравнения двух способов работы при равном качестве, а не тариф или результат реального внедрения.</p>
+<figure class="wf-graphic wf-budget" id="budget-chart" aria-labelledby="budget-chart-title">
+  <figcaption><span class="wf-kicker">Модель · 2 000 обращений за месяц</span><strong id="budget-chart-title">Меньше часов, больше выплат</strong></figcaption>
+  <div class="wf-bar-scale" aria-hidden="true"><span>0</span><span>400 000 ₽</span><span>800 000 ₽</span></div>
+  <ul class="wf-bars">
+    <li class="wf-bar-row" data-labour="600000" data-technology="0"><div class="wf-bar-label"><span>Вручную</span><b>600 000 ₽</b></div><div class="wf-bar-track" style="--wf-time:75%;--wf-tech:0%" aria-hidden="true"><span class="wf-bar-time"></span><span class="wf-bar-tech"></span></div></li>
+    <li class="wf-bar-row" data-labour="312500" data-technology="160000"><div class="wf-bar-label"><span>С ИИ: стоимость обработки</span><b>472 500 ₽</b></div><div class="wf-bar-track" style="--wf-time:39.0625%;--wf-tech:20%" aria-hidden="true"><span class="wf-bar-time"></span><span class="wf-bar-tech"></span></div></li>
+    <li class="wf-bar-row wf-bar-row--cash" data-labour="600000" data-technology="160000"><div class="wf-bar-label"><span>С ИИ: выплаты при прежнем штате</span><b>760 000 ₽</b></div><div class="wf-bar-track" style="--wf-time:75%;--wf-tech:20%" aria-hidden="true"><span class="wf-bar-time"></span><span class="wf-bar-tech"></span></div></li>
+  </ul>
+  <div class="wf-bar-key"><span><i class="wf-key-time" aria-hidden="true"></i>Работа людей</span><span><i class="wf-key-tech" aria-hidden="true"></i>Модели и эксплуатация</span></div>
+  <p class="wf-figure-note">В средней строке — стоимость времени на обработку плюс расходы на ИИ. В нижней — выплаты при прежнем фонде зарплат. Разовый запуск в график не входит.</p>
+</figure>
   <div class="workforce-table"><table><caption>2 000 обращений в месяц: стоимость работы и реальные выплаты</caption><thead><tr><th scope="col">Что считаем</th><th scope="col">Вручную</th><th scope="col">С ИИ</th></tr></thead><tbody>
     <tr><th scope="row">Часы на обращения</th><td>400 ч</td><td>208,3 ч</td></tr>
     <tr><th scope="row">Стоимость этих часов</th><td>600 000 ₽</td><td>312 500 ₽</td></tr>
@@ -50,6 +62,15 @@
   <h3>Почему счёт за ИИ редко сводится к подписке</h3>
   <p>В нашей таблице технология стоит 160 000 ₽ в месяц. В жизни эту цифру сначала нужно получить. Разобрать одно письмо и закрыть одно обращение — разные задачи: во второй могут понадобиться поиск по документам, запрос в учётную систему, несколько ответов модели и повтор после ошибки. При оплате за использование все эти шаги увеличивают счёт. А минуты оператора, который заметил неверный ответ и сам всё исправил, в счёте поставщика вообще не появятся.</p>
   <p>Есть расходы, которые возникают, только если поспешить. Уволенному платят пособие, а когда оказывается, что смена не справляется, компания снова тратится на найм и обучение. Договор с поставщиком к тому времени уже действует. В итоге фирма может одновременно платить за ИИ, за уход людей и за возвращение людей на ту же работу.</p>
+<aside class="wf-client-offer" id="process-review-offer" aria-labelledby="process-review-title">
+  <div class="wf-client-author"><a class="wf-client-portrait" href="/about/" aria-label="Об авторе: Антон Коннов"><img src="/assets/about/anton-konnov.webp" width="1000" height="1000" loading="lazy" decoding="async" alt=""></a><div><strong>Антон Коннов</strong><span>Управленческий консалтинг и прикладной ИИ</span></div></div>
+  <h3 id="process-review-title">Посчитаем экономику на вашем процессе</h3>
+  <p>Если выбираете, где внедрять ИИ, начнём с одного процесса: обращений, счетов или документов. Я помогу сравнить ручную работу, обычную автоматизацию и ИИ, оценить время на проверку и сложные случаи и выбрать задачу для пилота. Если пилот подтвердит пользу, могу организовать закупку оборудования, развернуть модели и подключить их к рабочим системам.</p>
+  <div class="wf-client-actions">
+    <a class="wf-action wf-action-primary" href="/contact/?topic=ai-process-review#ai-review-request">Описать свою задачу <span aria-hidden="true">→</span></a>
+    <a class="wf-action wf-action-secondary" href="/ai/#ai-process-review">Что входит в разбор</a>
+  </div>
+</aside>
 </section>
 <section class="ag-section" id="evidence">
   <h2>Кого сократили, а где снова начали нанимать</h2>
@@ -61,6 +82,7 @@
   <p>Есть и российские данные. По <a href="https://issek.hse.ru/news/1203025244.html">расчётам ИСИЭЗ ВШЭ на основе обследования Росстата</a>, в 2025 году ИИ использовали 5,2% обследованных крупных и средних организаций. Среди пользователей ИИ 62,7% отметили улучшения в работе компании, 24,1% — рост производительности труда, 9,1% — уменьшение численности. В отчёте учитывали разные виды ИИ, не только генеративный; малый бизнес в обследование не входил.</p>
   <h3 id="jobs">Как меняется найм, когда никого не увольняют</h3>
   <p>Руководитель оставляет одного аналитика и не ищет второго. Никто не получил уведомление, но для человека, который только входит в профессию, одной возможности уже нет. В <a href="https://digitaleconomy.stanford.edu/app/uploads/2026/11/AIEI_MU_Nov26.pdf">ноябрьском выпуске Stanford Digital Economy Lab</a> занятость американцев 22–25 лет в двух группах профессий, наиболее затронутых ИИ, снизилась почти на 4% за год к сентябрю 2026-го. Это данные выборки ADP; по ним одним нельзя установить причину снижения. Для работодателя здесь есть отдельный вопрос: если все простые задания уйдут программе, на какой работе новичок научится замечать её ошибки?</p>
+<a class="ag-card wf-context-card" href="/insights/ai-forecast-2032/"><small>По теме · Рынок труда</small><b>ИИ и человечество: прогноз до 2032 года</b><span>Что может измениться в найме, обучении и повседневной работе помимо сокращений.</span><i aria-hidden="true">↗</i></a>
 </section>
 <section class="ag-section" id="meta">
   <h2>В Meta насчитали больше правок. Для клиента это была другая цифра</h2>
@@ -77,6 +99,15 @@
   <h2>Когда поставщик ещё и покупатель</h2>
   <p>Посмотрим на один договор. В 2025 году CoreWeave <a href="https://www.sec.gov/Archives/edgar/data/1769628/000176962825000047/crwv-20250909.htm">раскрыла соглашение с NVIDIA</a> с первоначальной стоимостью $6,3 млрд: при выполнении условий NVIDIA обязалась покупать облачные мощности, которые CoreWeave не продаст другим клиентам, до апреля 2032 года. В январе 2026-го NVIDIA <a href="https://www.sec.gov/Archives/edgar/data/1769628/000176962826000044/ex991pressrelease_final.htm">отдельно вложила $2 млрд в акции CoreWeave</a>. Облако CoreWeave при этом работает на инфраструктуре NVIDIA. Один и тот же участник поставляет платформу, вкладывается в собственника облака и служит покупателем на случай нехватки спроса.</p>
   <p>Так можно построить площадку быстрее: часть риска простоя берёт на себя поставщик. Но чтобы понять, как окупится площадка, нужно выйти за рамки сделки и спросить, сколько вычислений купят компании, которые не финансируют её строительство. <a href="https://www.imf.org/en/publications/tnm/issues/2026/10/06/the-ai-ecosystem-structure-financing-and-financial-stability-considerations-579504">МВФ разбирает эту взаимозависимость</a>, а <a href="https://www.bankofengland.co.uk/financial-stability-report/2026/november-2026">Банк Англии оценивал</a>, что выпуск облигаций крупнейшими облачными компаниями за 2026 год превысит $305 млрд. Это ожидаемый объём заимствований этой группы, а не оценка убытков и не долги по одному контракту CoreWeave.</p>
+<figure class="wf-graphic wf-finance" id="finance-diagram" aria-labelledby="finance-diagram-title">
+  <figcaption><span class="wf-kicker">NVIDIA и CoreWeave</span><strong id="finance-diagram-title">Поставщик, инвестор и покупатель</strong></figcaption>
+  <ol class="wf-flow">
+    <li class="wf-flow-row wf-flow-platform"><div class="wf-flow-route"><span>NVIDIA</span><i class="wf-arrow" aria-hidden="true"></i><span class="wf-sr-only"> — получатель: </span><span>CoreWeave</span></div><div class="wf-flow-detail"><b>Платформа для вычислений</b><span>На инфраструктуре NVIDIA работает облако CoreWeave.</span></div></li>
+    <li class="wf-flow-row wf-flow-capital"><div class="wf-flow-route"><span>NVIDIA</span><i class="wf-arrow" aria-hidden="true"></i><span class="wf-sr-only"> — получатель: </span><span>CoreWeave</span></div><div class="wf-flow-detail"><b>$2 млрд в акции</b><span>Отдельная инвестиция, январь 2026 года.</span></div></li>
+    <li class="wf-flow-row wf-flow-capacity"><div class="wf-flow-route"><span>CoreWeave</span><i class="wf-arrow" aria-hidden="true"></i><span class="wf-sr-only"> — получатель: </span><span>NVIDIA</span></div><div class="wf-flow-detail"><b>Непроданные мощности</b><span>NVIDIA обязалась покупать остаток при соблюдении условий. Первоначальная стоимость заказа — $6,3 млрд.</span></div></li>
+  </ol>
+  <p class="wf-figure-note">Стрелки показывают, откуда идут платформа, инвестиция или вычислительная мощность. Стоимость заказа не означает, что такая сумма уже уплачена.</p>
+</figure>
 </section>
 <section class="ag-section" id="who-pays">
   <h2>За что можно платить, даже не пользуясь ИИ</h2>
@@ -87,6 +118,7 @@
   <h3>Память для компьютеров и телефонов</h3>
   <p>Заводы распределяют выпуск между серверами, ПК и мобильными устройствами. <a href="https://www.trendforce.com/presscenter/news/20260930-13258.html">TrendForce в прогнозе на IV квартал 2026 года</a> отмечала приоритет серверной памяти и ожидала подорожания контрактных цен обычной DRAM на 10–15% к предыдущему кварталу, NAND — на 15–20%. Это цены на компоненты, а не рост цены каждого готового ноутбука. Но даже производитель устройства без функций ИИ покупает память на том же рынке.</p>
   <p>В трёх случаях расход передаётся по-разному: через тариф, через риск по долгу или через цену детали. Пользование чат-ботом здесь вообще не обязательное условие.</p>
+<a class="ag-card wf-context-card" href="/insights/home-ai-hardware/"><small>По теме · Свой сервер или облако</small><b>Оборудование для локального ИИ</b><span>Калькулятор памяти и обзор цен: что из нужных моделей можно запустить на своём оборудовании.</span><i aria-hidden="true">↗</i></a>
 </section>
 <section class="ag-section" id="pilot">
   <h2>Как я бы проверял это в своём отделе</h2>
@@ -94,6 +126,7 @@
   <p id="what-to-delegate">Если бот ошибётся в спорном возврате, цена ошибки — не лишнее сообщение, а чужие деньги. Я бы поручил ему собрать записи о платежах, а решение оставил сотруднику. И проверил бы, стало ли с таким помощником быстрее разобраться. Для другой работы мерка своя: в разработке, например, это время до работающего выпуска, включая проверку, а не число правок.</p>
   <p id="hidden-bill">Смотреть я бы просил не на удачный показ, а на обычную неделю и пиковый день: сколько обращений решено с первого раза, сколько вернулось и сколько времени люди потратили на ответы, проверку и работу при сбое. К счёту за модель надо прибавить интеграцию, поддержку и исправления. Если команда по-прежнему держит ту же смену и платит ей столько же, в бюджете это расход на ИИ, а не сокращение расходов на людей.</p>
   <p>Вопрос о штате пора задавать после того, как понятны две вещи: какую работу больше не нужно делать людям и что стало с деньгами. До этого я бы не убирал людей из графика. Клиенту всё равно, что было в плане автоматизации: ему нужен кто-то, кто решит вопрос.</p>
+<p class="wf-pilot-link">Есть процесс, с которого хотите начать? <a href="/contact/?topic=ai-process-review#ai-review-request">Опишите его в заявке</a>.</p>
 </section>
 <section class="ag-section" id="research">
   <h2>Ещё по теме: данные и источники</h2>
@@ -107,6 +140,6 @@
   </details>
 </section>
 </div></div>
-<section class="ag-shell ag-related"><h2>По теме</h2><div class="ag-card-grid"><a class="ag-card" href="/insights/ai-business-process-pilot/"><b>Как провести пилот ИИ</b><span>Что проверить до закупки и на первых реальных задачах.</span></a><a class="ag-card" href="/insights/ai-forecast-2032/"><b>Прогноз до 2032 года</b><span>Как могут измениться работа, образование и повседневная жизнь.</span></a><a class="ag-card" href="/ai/agents/"><b>Руководство по ИИ-агентам</b><span>Инструменты, доступы и правила остановки для агента.</span></a><a class="ag-card" href="/books-games/ai-assistant-book/"><b>Книга «Создай своего ассистента»</b><span>С чего начать, если нужен помощник для своей работы.</span></a></div>
-<div class="ag-takeaway workforce-offer"><h3>Разобрать ваш процесс до закупки или внедрения</h3><p>Пришлите один процесс: сколько задач приходит и на что уходит время. Я помогу понять, что можно поручить ИИ, что оставить сотрудникам и как проверить экономику до закупки. Если пилот подтвердит пользу, помогу подобрать и закупить оборудование, развернуть модели и подключить их к рабочим системам.</p><p><a href="/contact/?topic=ai-process-review#ai-review-request">Обсудить задачу</a> · <a href="/ai/#ai-process-review">Что входит в разбор</a></p></div></section>
+<section class="ag-shell ag-related"><h2>По теме</h2><div class="ag-card-grid"><a class="ag-card" href="/insights/ai-business-process-pilot/"><b>Как провести пилот ИИ</b><span>Что проверить до закупки и на первых реальных задачах.</span></a><a class="ag-card" href="/ai/digi-anton/"><b>Digi Anton: ИИ-лаборатория Антона Коннова</b><span>Как в моей ИИ-лаборатории устроены общие данные, задачи агентов и проверка результатов.</span></a><a class="ag-card" href="/ai/agents/"><b>Руководство по ИИ-агентам</b><span>Инструменты, доступы и правила остановки для агента.</span></a><a class="ag-card" href="/books-games/ai-assistant-book/"><b>Книга «Создай своего ассистента»</b><span>С чего начать, если нужен помощник для своей работы.</span></a></div>
+</section>
 </article></main><footer class="site-footer"><nav aria-label="Навигация в подвале"><a href="/consulting/">Консалтинг</a><a href="/books-games/">Книги и игры</a><a href="/ai/">ИИ</a><a href="/portfolio/">Опыт</a><a href="/cases/">Кейсы</a><a href="/about/">Об Антоне</a><a href="/insights/">Материалы</a><a href="/contact/">Контакты</a><a href="/privacy/">Конфиденциальность</a></nav><div class="footer-contacts"><a href="mailto:admin@akonnov.ru">admin@akonnov.ru</a><a href="https://t.me/biz_in" target="_blank" rel="noreferrer">Telegram ↗</a><a href="https://vk.com/anton.konnov" target="_blank" rel="noreferrer">VK ↗</a><a href="https://www.linkedin.com/in/antonkonnov/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div><small>© <span data-current-year>2026</span> Антон Коннов · Москва</small></footer></body></html>
