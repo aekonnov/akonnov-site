@@ -1,0 +1,53 @@
+.ac-guide { --ac-ink: #233129; --ac-sage: #bbd3b7; --ac-copper: #eaaa88; }
+.ac-guide .ag-hero h1 { max-width: 19ch; text-wrap: balance; }
+.ac-guide .ac-byline { margin: 1.15rem 0 0; font-size: .94rem; }
+.ac-guide .ac-byline a { color: inherit; text-underline-offset: .2em; }
+.ac-guide .ag-section > p a { text-underline-offset: .2em; }
+.ac-guide .ac-chart { border-radius: 9px; margin: 1.55rem 0; padding: clamp(1.15rem, 3vw, 2rem); min-width: 0; }
+.ac-chart figcaption { display: grid; gap: .38rem; margin: 0 0 1.2rem; }
+.ac-chart figcaption strong { font-family: var(--display, Unbounded, sans-serif); font-size: clamp(1.14rem, 2.4vw, 1.68rem); line-height: 1.32; text-wrap: balance; }
+.ac-chart .ac-overline { text-transform: uppercase; font-size: .76rem; font-weight: 800; letter-spacing: .07em; line-height: 1.45; }
+.ac-guide .ac-capex { color: #fff9eb; background: #1e2b25; }
+.ac-capex .ac-overline, .ac-capex .ac-chart-note { color: #d5e2d0; }
+.ac-guide .ac-chart ol, .ac-guide .ac-chart ul { list-style: none; padding: 0; margin: 0; }
+.ac-invest-years { display: grid; gap: .9rem; }
+.ac-chart .ac-bar-heading { display: flex; align-items: baseline; justify-content: space-between; gap: .45rem; line-height: 1.32; margin: 0 0 .35rem; }
+.ac-bar-heading strong { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ac-chart .ac-track { height: .66rem; border-radius: 1rem; background: #ffffff2b; overflow: hidden; }
+.ac-track i { display: block; width: var(--share); height: 100%; background: var(--ac-sage); }
+.ac-projection .ac-track i { background: repeating-linear-gradient(135deg, var(--ac-copper) 0 5px, #a66449 5px 7px); }
+.ac-guide .ac-chart .ac-chart-note { margin: 1rem 0 0; font-size: .87rem; line-height: 1.48; }
+.ac-guide .ac-budget { background: #f2e8d8; border: 1px solid #dbccb6; color: #272b23; }
+.ac-budget .ac-overline { color: #7c452c; }
+.ac-cost-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .62rem; }
+.ac-guide .ac-cost-grid > li { margin: 0; min-width: 0; padding: .75rem; background: #fffbf2; border: 1px solid #ddd2bf; border-radius: 5px; }
+.ac-guide .ac-cost-grid .ac-match { background: #e8eddf; border-color: #a9b99e; }
+.ac-guide .ac-cost-grid h3 { margin: 0 0 .68rem; font: 800 1.13rem/1.3 var(--font-body, Manrope, sans-serif); }
+.ac-cost-grid h3 span { font-size: .78rem; font-weight: 600; }
+.ac-cost-grid .ac-bar-heading { font-size: .84rem; }
+.ac-cost-grid .ac-track { height: .49rem; background: #dcd5c8; }
+.ac-cost-grid .ac-cloud .ac-track i { background: #9b512f; }
+.ac-cost-grid .ac-local .ac-track i { background: #4c674a; }
+.ac-cost-item + .ac-cost-item { margin-top: .55rem; }
+.ac-guide .ac-cost-grid p { margin: .8rem 0 0; font-size: .82rem; line-height: 1.4; font-weight: 800; }
+.ac-guide .ag-section > .ac-context { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .3rem .75rem; margin: 1.25rem 0 0; padding: 1rem 1.1rem; }
+.ac-guide .ag-section > .ac-context small, .ac-guide .ag-section > .ac-context b, .ac-guide .ag-section > .ac-context span { grid-column: 1; }
+.ac-guide .ag-section > .ac-context em { grid-column: 2; grid-row: 1 / 4; align-self: center; margin: 0; }
+.ac-guide .ag-section > .ac-context b { font-size: clamp(1.1rem, 2vw, 1.24rem); }
+.ac-guide .ac-offer { margin: 1.75rem 0 0; background: #e7eddf; border: 1px solid #bdcab3; color: #212d24; border-radius: 8px; padding: clamp(1.15rem, 3vw, 1.75rem); }
+.ac-offer .ac-author { display: flex; align-items: center; gap: .7rem; margin-bottom: .9rem; }
+.ac-offer .ac-author div { display: grid; gap: .1rem; line-height: 1.35; }
+.ac-offer .ac-author span { font-size: .84rem; color: #424d41; }
+.ac-offer .ac-author a { width: 3.1rem; height: 3.1rem; border-radius: 50%; flex: 0 0 3.1rem; overflow: hidden; }
+.ac-offer .ac-author img { display: block; width: 100%; height: 100%; object-fit: cover; transform: translate(3%,21%) scale(4.5); transform-origin: 47% 29%; }
+.ac-guide .ac-offer h3 { margin: 0 0 .5rem; }
+.ac-guide .ac-offer p { margin: 0 0 1rem; line-height: 1.65; }
+.ac-offer .ac-actions { display: flex; flex-wrap: wrap; gap: .5rem .7rem; }
+.ac-offer .ac-actions a { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .8rem; min-height: 44px; border-radius: 4px; border: 1px solid #4d6252; color: #233129; font-weight: 800; text-decoration: none; }
+.ac-offer .ac-actions a:hover { background: #d2decc; }
+.ac-offer .ac-actions .ac-primary { background: #263b30; color: #fff9eb; }
+.ac-offer .ac-actions .ac-primary:hover { background: #415c49; }
+@media (max-width: 760px) {
+  .ac-guide .ac-cost-grid { grid-template-columns: minmax(0, 1fr); }
+  .ac-guide .ac-cost-grid > li { padding: .8rem; }
+}
