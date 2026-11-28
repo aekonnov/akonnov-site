@@ -17,6 +17,9 @@
 .workforce .workforce-offer h3 { margin: 0 0 .8rem; }
 .workforce .workforce-offer a { color: inherit; }
 .workforce .workforce-offer p + p { margin-top: .75rem; }
+.workforce .workforce-source { border-top: 1px solid var(--ag-border); padding: .85rem 0; }
+.workforce .workforce-source summary { cursor: pointer; font-weight: 700; }
+.workforce .workforce-source p { margin: .7rem 0 .45rem; }
 @media (max-width: 620px) {
   .workforce .workforce-table th, .workforce .workforce-table td { font-size: .85rem; line-height: 1.45; padding: .58rem .42rem; }
   .workforce .workforce-examples { grid-template-columns: minmax(0,1fr); }
