@@ -23,6 +23,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"AI Grain Trading — Margin and Deal Control","description":"Proposed grain trading solution: deal margin, profit per tonne, documents, AI analytics and exception control alongside existing accounting systems.","url":"https://akonnov.com/en/ai/grain-trading/","inLanguage":"en-US"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://akonnov.com/en/"},{"@type":"ListItem","position":2,"name":"AI","item":"https://akonnov.com/en/ai/"},{"@type":"ListItem","position":3,"name":"AI Grain Trading","item":"https://akonnov.com/en/ai/grain-trading/"}]}]}</script>
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/assets/grain-trading.css">
+  <link rel="stylesheet" href="/assets/grain-demo-video.css">
   <meta name="theme-color" content="#131516">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -50,9 +51,34 @@
   <section class="grain-section grain-white" aria-labelledby="grain-demo-title">
     <div class="grain-section-heading"><p class="eyebrow">Interactive demo</p><div>
       <h2 id="grain-demo-title">Explore trade economics across two sample snapshots</h2>
-      <p>Open an alert, compare up to three trades, and trace margin variance to individual costs. The Russian-language dashboard, source data and report downloads are open to everyone. The AI analyst and email delivery require an invited account.</p>
-      <p><a class="button button-primary" href="https://ctrm.akonnov.com/en/">Open CTRM AI Grain</a></p>
+      <p>Open an alert, compare up to three trades, and trace a change in margin to individual costs. The English dashboard, source data and report downloads are open to everyone. Ask the analyst or send a report by email after signing in with an invited account.</p>
     </div></div>
+    <div id="video-demo" class="grain-demo-video" aria-labelledby="grain-video-title">
+      <div class="grain-demo-video-intro">
+        <p class="eyebrow">English walkthrough · 10:49</p>
+        <h3 id="grain-video-title">From deal margin to a cash shortfall</h3>
+        <p>Follow a storage alert to the cost behind it, see what happens when buyers pay late, and download a report from the demo.</p>
+      </div>
+      <video controls playsinline preload="none" poster="/assets/grain-demo-poster-en.jpg" aria-label="CTRM AI Grain walkthrough in English">
+        <source src="/assets/ct-grain-demo-en.mp4" type="video/mp4">
+        <track kind="captions" src="/assets/ct-grain-demo-en.vtt" srclang="en" label="English">
+        <a href="/assets/ct-grain-demo-en.mp4">Open the MP4</a>
+      </video>
+      <nav aria-label="Walkthrough chapters">
+        <h4>Jump to a chapter</h4>
+        <ol class="grain-demo-chapters">
+          <li><a href="/assets/ct-grain-demo-en.mp4#t=0" data-video-start="0"><time datetime="PT0S">0:00</time><span>Three questions about a grain portfolio</span></a></li>
+          <li><a href="/assets/ct-grain-demo-en.mp4#t=44.625" data-video-start="44.625"><time datetime="PT44.625S">0:45</time><span>Read the portfolio and apply filters</span></a></li>
+          <li><a href="/assets/ct-grain-demo-en.mp4#t=133.042" data-video-start="133.042"><time datetime="PT133.042S">2:13</time><span>Follow an alert to the underlying cost</span></a></li>
+          <li><a href="/assets/ct-grain-demo-en.mp4#t=220.917" data-video-start="220.917"><time datetime="PT220.917S">3:41</time><span>Compare deals, managers and groups</span></a></li>
+          <li><a href="/assets/ct-grain-demo-en.mp4#t=286.833" data-video-start="286.833"><time datetime="PT286.833S">4:47</time><span>Credit and shortfalls in the cash forecast</span></a></li>
+          <li><a href="/assets/ct-grain-demo-en.mp4#t=393.583" data-video-start="393.583"><time datetime="PT393.583S">6:34</time><span>Ask the analyst and download a report</span></a></li>
+          <li><a href="/assets/ct-grain-demo-en.mp4#t=553.167" data-video-start="553.167"><time datetime="PT553.167S">9:13</time><span>Where the numbers come from</span></a></li>
+          <li><a href="/assets/ct-grain-demo-en.mp4#t=611.583" data-video-start="611.583"><time datetime="PT611.583S">10:12</time><span>Two ways to try it yourself</span></a></li>
+        </ol>
+      </nav>
+      <p><a class="button primary" href="https://ctrm.akonnov.com/en/">Open the English demo</a></p>
+    </div>
   </section>
 
   <section id="scope" class="grain-section grain-white" aria-labelledby="problem-title">
@@ -157,5 +183,6 @@
 
 <footer class="site-footer"><nav aria-label="Footer navigation"><a href="/en/consulting/">Consulting</a><a href="/en/books-games/">Books &amp; Games</a><a href="/en/ai/">AI</a><a href="/en/portfolio/">Experience</a><a href="/en/cases/">Case Studies</a><a href="/en/about/">About Anton</a><a href="/en/insights/">Insights</a><a href="/en/contact/">Contact</a><a href="/en/privacy/">Privacy</a></nav><div class="footer-contacts"><a href="mailto:admin@akonnov.ru">admin@akonnov.ru</a><a href="https://t.me/biz_in" target="_blank" rel="noreferrer">Telegram ↗</a><a href="https://vk.com/anton.konnov" target="_blank" rel="noreferrer">VK ↗</a><a href="https://www.linkedin.com/in/antonkonnov/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div><small>© <span data-current-year>2026</span> Anton Konnov · Moscow</small></footer>
 <script src="/script.js"></script>
+<script src="/assets/grain-demo-video.js" defer></script>
 </body>
 </html>
